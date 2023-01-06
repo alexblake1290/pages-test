@@ -1,0 +1,26 @@
+---
+# A Demo section created with the Blank widget.
+# Any elements can be added in the body: https://wowchemy.com/docs/writing-markdown-latex/
+# Add more sections by duplicating this file and customizing to your requirements.
+
+widget: featurette # See https://wowchemy.com/docs/page-builder/
+headless: true # This file represents a page section.
+weight: 5 # Order that this section will appear.
+title: | 
+  Climate change impacts on marine food-webs
+subtitle:
+feature:
+  - icon: r-project
+    icon_pack: fab
+    name: R
+    description: tidyverse
+  - icon: chart-line
+    icon_pack: fas
+    name: Regression
+    description: linear mixed models
+  - icon: camera-retro
+    icon_pack: fas
+    name: Laboratory experiments
+    description: experimental evolution
+---
+

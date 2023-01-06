@@ -1,0 +1,21 @@
+# Theme metadata
+name = "ecodata" # Based on https://www.ecodata.tech/
+
+[dark]
+  # Primary
+  primary = "#ffffff"
+  background = "#1b2724"
+
+  text = "#ffffff"
+  link = "#6eb39c"
+  link_hover = "#ffffff"
+
+  # Menu
+  menu_primary = "#ffffff"
+  menu_text = "#ffffff"
+  menu_text_active = "#ffffff"
+  menu_title = "#ffffff"
+
+  # Home sections
+  home_section_odd = "#1b2724"
+  home_section_even = "#264038"
