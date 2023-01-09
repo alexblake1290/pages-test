@@ -17,6 +17,7 @@ sections:
       gradient_end: '#1b2724'
       gradient_start: '#264038'
       text_color_light: yes
+    css_class: 'big_headline'
 - block: markdown
   design:
     background:

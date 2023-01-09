@@ -9665,3 +9665,6 @@ div.chart {
   margin-right: auto;
   margin-bottom: 1rem;
   overflow-x: auto; }
+
+.big_headline h1 {
+  font-size: 600%; }
