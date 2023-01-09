@@ -9,6 +9,10 @@ summary: Copepods are not well known among the general public, but they play a v
 tags:
 - Intro
 title: Copepods - why care?
+share: false
+profile: false
+comments: false
+reading_time: false
 ---
 
 
