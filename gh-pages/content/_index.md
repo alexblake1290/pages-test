@@ -4,14 +4,6 @@ sections:
 - block: hero
   content:
     title: Climate change impacts on marine foodwebs
-    text: |-
-      <br>
-      
-      **Client:** Major tuna farm
-      
-      **Themes:** Fisheries and aquaculture, climate change
-      
-      **Impact: Feedstock efficiency lifted 20%**
   design:
     background:
       gradient_end: '#1b2724'
@@ -27,6 +19,23 @@ sections:
         position: center
         parallax: yes
         text_color_light: yes
+- block: markdown
+  content:
+    text: |-
+      <br>
+      
+      ## **Client:** Major tuna farm
+        
+      ## **Themes:** Fisheries and aquaculture, climate change
+        
+      ## **Impact: Feedstock efficiency lifted 20%**
+  design:
+    background:
+      color: '#1b2724'
+      text_color_light: yes
+    css_style: 'font-size: 250%;'
+    spacing:
+      padding: ["5px","0","5px","0"]
 - block: portfolio
   content:
     filters:
