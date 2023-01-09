@@ -2,8 +2,8 @@
 date: "2016-04-26T00:00:00Z"
 external_link: ""
 image:
-  caption: Photo by unknown
   focal_point: Smart
+  preview_only: true
 links:
 summary: Copepods are not well known among the general public, but they play a vital role in the healthy functioning of our oceans. Copepods comprise most of the marine zooplankton, over 75% by biomass. They are an important source of food, providing the link between phytoplankton – which capture energy from the sun – and the wider marine foodwebs that need this energy to thrive. They also play a critical role in the carbon cycle, transferring large quantities of carbon into the deep ocean through their waste.
 tags:
@@ -15,6 +15,7 @@ comments: false
 reading_time: false
 ---
 
+<img src="featured.jpg" style="border-radius: 5%;" />
 
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
