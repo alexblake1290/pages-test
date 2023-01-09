@@ -24,11 +24,11 @@ sections:
     text: |-
       <br>
       
-      ## **Client:** Major tuna farm
+      # **Client:** Major tuna farm
         
-      ## **Themes:** Fisheries and aquaculture, climate change
+      # **Themes:** Fisheries, aquaculture, climate change
         
-      ## **Impact: Feedstock efficiency lifted 20%**
+      # **Impact: Feedstock efficiency lifted 20%**
   design:
     background:
       color: '#1b2724'
