@@ -5,7 +5,7 @@ theme: "starter-hugo-academic"
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 title: Academic # Website name
-baseURL: 'https://serene-choux-d79a21.netlify.app/' # Website URL
+baseURL: 'https://loquacious-parfait-405892.netlify.app/' # Website URL
 
 ############################
 ## LANGUAGE
