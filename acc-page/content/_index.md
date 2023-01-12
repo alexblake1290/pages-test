@@ -15,15 +15,6 @@ sections:
       text_color_light: yes
     css_class: 'big_headline'
 - block: markdown
-  design:
-    background:
-      image:
-        filename: apples1.jpg
-        size: cover
-        position: center
-        parallax: yes
-        text_color_light: yes
-- block: markdown
   content:
     text: |-
       <br>
@@ -61,8 +52,6 @@ sections:
       text_color_light: yes
 - block: markdown
   design:
-    spacing:
-      padding: ["10px","0","10px","0"]
     background:
       image:
         filename: apples1.jpg
@@ -79,7 +68,7 @@ sections:
       url: https://www.ecodata.tech/projects#contact
   design:
     spacing:
-      padding: ["10px","0","10px","0"]
+      padding: ["20px","0","20px","0"]
     background:
       image:
         color: '#1b2724'
