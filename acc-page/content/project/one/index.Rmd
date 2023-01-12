@@ -32,13 +32,14 @@ library(kableExtra)
 
 Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected high temperatures were inhibiting an herbicide, causing expensive wastage, but this wasn’t happening on all farm which was perplexing.
 
-[image of some scorched plants]
+<img src="img2.jpg" style="border-radius: 5%;" />
 
 The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures.
 
-[salesperson surveying a farmer]
+<img src="img3.jpg" style="border-radius: 5%;" />
 
 But was this really occurring in the field? And if so, at what temperatures? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+
 [flow chart of data being emailed or shipped]
 
 ## Our solution: enriching end-user surveys
