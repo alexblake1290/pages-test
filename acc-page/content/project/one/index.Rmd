@@ -46,8 +46,9 @@ But was this really occurring in the field? And if so, at what temperatures? Our
 Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
 
 ```{r}
-kable(mtcars[1:5, ], format="latex") %>%
-  kable_styling(latex_options="scale_down")
+kable(mtcars[1:5, ])
+#kable(mtcars[1:5, ], format="latex") %>%
+#  kable_styling(latex_options="scale_down")
 ```
 
 ## Digging deeper
