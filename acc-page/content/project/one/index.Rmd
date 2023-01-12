@@ -41,7 +41,7 @@ Surprisingly, that was all the data we needed from our client to start answering
 
 ```{r echo = FALSE, results = 'asis'}
 library(knitr)
-kable(mtcars[1:5], caption = "A sample of the end-user survey")
+kable(mtcars[1:5, ], caption = "A sample of the end-user survey")
 ```
 
 ## Digging deeper
