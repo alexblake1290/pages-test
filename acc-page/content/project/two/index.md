@@ -4,8 +4,14 @@ external_link: ""
 image:
   caption: Photo by Toa Heftiba on Unsplash
   focal_point: Smart
-summary: Given the importance of copepods we want to know how impacts of climate change, such as shifts in temperature and pH, might affect them – which may have knock-on effects for their predators and carbon cycling. Climate change will also have an indirect effect on food availability for copepods by impacting the algae they graze on, but we’re still learning how animals evolve at different levels of food abundance. One way to investigate evolutionary responses to food is to evolve copepods in a laboratory under controlled conditions.
+summary: |-
+  
+  With our eye for details, we noticed that product performance subtly differed across state lines. Higher temperatures clearly drove product failure in Nebraska, but the relationship was murkier in Pennsylvania.
+  
+  We prioritize client time and comprehension. As the problem expanded in complexity, so did our models. An important part of our work is unpacking the results for actionable insights. This helped us and our client to quickly zero in on a root cause and develop new product recommendations.
+  
+  Click for more on how we report complexity with clarity.
 tags:
 - Problem
-title: The Problem
+title: Digging deeper - straightforward answers from complex models
 ---

@@ -3,7 +3,7 @@ title: "null"
 sections:
 - block: hero
   content:
-    title: Climate change impacts on marine foodwebs
+    title: Agrochemical performance in the field
   design:
     background:
       gradient_end: '#1b2724'
@@ -14,7 +14,7 @@ sections:
   design:
     background:
       image:
-        filename: ocean.jpg
+        filename: apples1.jpg
         size: cover
         position: center
         parallax: yes
@@ -24,11 +24,11 @@ sections:
     text: |-
       <br>
       
-      # {{< icon name="terminal" pack="fas" >}} **Client:** Major tuna farm
+      # {{< icon name="terminal" pack="fas" >}} **Client:** American agrochemical producer
         
-      # {{< icon name="python" pack="fab" >}} **Themes:** Fisheries, aquaculture, climate change
+      # {{< icon name="python" pack="fab" >}} **Themes:** Herbicide performance, regional climates 
         
-      # {{< icon name="r-project" pack="fab" >}} **Impact: Feedstock efficiency lifted 20%**
+      # {{< icon name="r-project" pack="fab" >}} **Impact: End-user wastage down xx%**
   design:
     background:
       image:
@@ -65,7 +65,7 @@ sections:
   design:
     background:
       image:
-        filename: ocean.jpg
+        filename: apples1.jpg
         size: cover
         position: center
         parallax: yes

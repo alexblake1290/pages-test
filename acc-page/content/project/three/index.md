@@ -5,10 +5,16 @@ image:
   caption: Photo by unknown
   focal_point: Smart
 links:
-summary: We reared 20 populations of copepods for about 30 generations under high or low food levels over 1.5 years, then measured a variety of morphological and life cycle (life history) traits to see how they diverged. We found evidence that food level drove systemic change in life histories, including in adult size and growth patterns and offspring investment strategies.
+summary: |-
+
+  Dense cloud cover blocks UV rays and impedes crop photosynthesis – both impact product performance. Measuring cloudiness from raw imagery across many dates and sites required data mining and automation outside our client’s expertise.
+  
+  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in the humid east-coast state like Pennsylvania but not in  western Nebraska.
+  
+  Click for more on how we used data engineering to extract cloud data.
 tags:
 - Solution
-title: Our Solution
+title: Data engineering to uncover root cause
 url_code: ""
 url_pdf: ""
 url_slides: ""

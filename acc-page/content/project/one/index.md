@@ -5,10 +5,15 @@ image:
   focal_point: Smart
   preview_only: true
 links:
-summary: Copepods are not well known among the general public, but they play a vital role in the healthy functioning of our oceans. Copepods comprise most of the marine zooplankton, over 75% by biomass. They are an important source of food, providing the link between phytoplankton – which capture energy from the sun – and the wider marine foodwebs that need this energy to thrive. They also play a critical role in the carbon cycle, transferring large quantities of carbon into the deep ocean through their waste.
+summary: |-
+  Agrochemical products deal with all the environmental extremes that occurs in the field. Our client suspected high mid-day air temperatures were preventing an herbicide from working. A simple survey from growers confirmed their suspicions, but they needed hard numbers to improve their product.
+  
+  Our client provided ran a survey with their customers and we gathered the rest of the data. Though temperature was important, our data scientists uncovered more questions about product performance on farms in different US states.
+  
+  Click for more on how we worked the client to assess the problem.
 tags:
 - Intro
-title: Copepods - why care?
+title: Temperature impact on herbicide performance
 share: false
 profile: false
 comments: false
