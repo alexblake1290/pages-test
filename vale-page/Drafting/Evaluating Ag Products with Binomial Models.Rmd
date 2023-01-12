@@ -1,0 +1,96 @@
+---
+title: "EcoData Technology Analytics Demo"
+author: "robclark@ecodata.tech"
+date: "2023-01-05"
+output:
+  html_document:
+    keep_md: yes
+    toc: yes
+    toc_float: yes
+    theme: cosmo
+  pdf_document:
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libraries, include=FALSE}
+library(tidyverse)
+library(readxl)
+```
+
+## Evaluating Ag Products with Binomial Models
+
+
+# Problem
+Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended.
+
+Products either succeed or fail in the field, and end-users can report those successes. But how can we use that information?
+
+For example, a client suspects that extremely high daytime temperatures in spring prevents an herbicide from working. Is that actually occurring in the field? If so, at what temperatures? A survey can get us halfway there, but we want some hard numbers.
+
+<center>
+![](images/glyphosate.png){width=70%}
+<center>
+
+# Solution
+If we have survey data telling us where product worked, Data Scientists at EcoData Technology can hunt down the relevant environmental information. We have developed the underlying techniques to source data from farms. This includes data from weather stations, landsat photos, or climatic records. We then make a database for the client that matches their end-user survey data to our environmental data.
+
+With a good database we can answer real-world questions. One tool for such an analysis are 'binomial generalized linear models'. These are simply statistical tests to see if "success" or "failure" is influenced by something like temperature. While tricky to interpret, these models are extremely useful because they tell us the threshold at which a product stops working. Not only that, the models can tell use how much confidence we can have in our conclusions.
+
+# Example Field Data
+
+Imagine we have a survey of 19 growers using a product gave us reports of the product succeeding. They reported "yes" or "no" to a salesperson who tabulated the data and entered it into an Excel file that was shared securely with our Data Scientists.
+
+```{r survey data, echo=FALSE}
+#import a nice xlsx file and render just the table
+survey_dat <- read.csv("demo.csv") 
+head(survey_dat)
+
+```
+
+# Getting Environmental Data
+We used the addresses provided to lookup GPS coordinates of farms. 
+```{r environmetal data}
+
+#show how to get gps and add to data
+
+demo_dat <- read.csv("demo.csv") 
+demo_dat
+
+# then show how to add weather data
+
+```
+
+# Example Temp Data
+
+Coordinates are plugged into weather stations to pull data from the day which the grower applied the product.
+
+<center>
+
+![](images/weather station.jpg){width=50%}
+<center>
+
+
+```{r points, echo=FALSE}
+demo_dat$Daily_high_temp %>% 
+  sort() %>%
+  plot()
+
+```
+
+# Example Map
+
+
+
+# Binomial Generalized Linear Model
+
+This is the model worth looking at closely. Each point is an observation from a farm. The line and the shaded area represent how the model conforms to the data provided.
+
+
+
+
+# Info
+EcoData Technology is an environmental data science professional services company <http://ecodata.tech>. We work with agricultural professionals and natural resource managers to solve problems with data. All our Data Scientists have PhD's - we've spent just as much time in the field as in front of a computer. Our Business Analysts have real industry experience with plant protection and financial technology.

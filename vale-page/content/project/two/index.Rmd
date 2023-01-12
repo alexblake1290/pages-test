@@ -1,0 +1,105 @@
+---
+date: "2016-04-27T00:00:00Z"
+external_link: ""
+image:
+  focal_point: Smart
+  preview_only: true
+links:
+summary: |-
+  
+  With our eye for details, we noticed that product performance subtly differed across state lines. Higher temperatures clearly drove product failure in California, but the relationship was murkier in Florida.
+  
+  We prioritize client time and comprehension. As the problem expanded in complexity, so did our models. An important part of our work is unpacking the results for actionable insights. This helped us and our client to quickly zero in on a root cause and develop new product recommendations.
+  
+  Click for more on how we report complexity with clarity.
+tags:
+- Problem
+title: Digging deeper - straightforward answers from complex models
+share: false
+profile: false
+comments: false
+reading_time: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(tidyverse)
+library(effects)
+library(ecodatamisc)
+demo_dat <- read.csv("demo.csv")
+bg = "#1b2724"
+wh = "#ffffff"
+pl = "#6eb39c"
+```
+
+<img src="featured.png" style="border-radius: 5%;" />
+
+## Uncovering hidden complexities
+
+Placeholder
+
+## Communication is key
+
+Placeholder
+
+## A case study: leveraging simple yes/no surveys
+
+Placeholder text
+
+bargraph
+
+```{r bar}
+demo_dat %>%
+  group_by(Product_success) %>%
+  summarize(value = n()) %>%
+  ggplot(aes(x = Product_success, y = value)) +
+    geom_bar(stat = 'identity', fill = pl) +
+    labs(title = '', x = '\nSurvey Response', y = 'Count\n') +
+    theme_ecodata() +
+    theme(
+      panel.background = element_rect(fill=bg,colour=NA),
+      plot.background = element_rect(fill=bg,colour=NA),
+      axis.line = element_line(colour=wh),
+      axis.text = element_text(colour=wh),
+      axis.title.x = element_text(colour=wh),
+      axis.title.y = element_text(colour=wh),
+      panel.border = element_rect(colour=wh,fill=NA)
+    )
+```
+
+## A case study: leveraging simple yes/no surveys
+
+Placeholder text
+
+```{r ggplot2}
+demo_dat$response = as.factor(demo_dat$Product_success)
+mod = glm(response ~ Daily_high_temp, family=binomial, data=demo_dat)
+dat = allEffects(se=TRUE, xlevels=100, mod=mod) %>%
+  as.data.frame()
+
+ggplot(data=dat$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
+  geom_line(linewidth=1,colour=pl) +
+  geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
+  labs(title = '', x = '\nDaily max temperature (F)', y = 'Probability of product failure\n') +
+  theme_ecodata() +
+  theme(
+    panel.background = element_rect(fill=bg,colour=NA),
+    plot.background = element_rect(fill=bg,colour=NA),
+    axis.line = element_line(colour=wh),
+    axis.text = element_text(colour=wh),
+    axis.title.x = element_text(colour=wh),
+    axis.title.y = element_text(colour=wh),
+    panel.border = element_rect(colour=wh,fill=NA)
+  ) +
+  geom_point(data=demo_dat, aes(x=Daily_high_temp, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.2, colour=pl)
+```
+
+## Distilling things down to actionable insights
+
+Placeholder
+
+(Links to other pages)
+

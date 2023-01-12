@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solution | Academic</title>
+    <link>https://example.com/tag/solution/</link>
+      <atom:link href="https://example.com/tag/solution/index.xml" rel="self" type="application/rss+xml" />
+    <description>Solution</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 28 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Solution</title>
+      <link>https://example.com/tag/solution/</link>
+    </image>
+    
+    <item>
+      <title>Our Solution</title>
+      <link>https://example.com/project/three/</link>
+      <pubDate>Thu, 28 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>https://example.com/project/three/</guid>
+      <description>&lt;p&gt;Dummy text&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

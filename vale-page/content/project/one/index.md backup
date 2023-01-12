@@ -1,0 +1,60 @@
+---
+date: "2016-04-26T00:00:00Z"
+external_link: ""
+image:
+  focal_point: Smart
+  preview_only: true
+links:
+summary: |-
+  Agrochemical products deal with all the environmental extremes that occurs in the field. Our client suspected high mid-day air temperatures were preventing an herbicide from working. A simple survey from growers confirmed their suspicions, but they needed hard numbers to improve their product.
+  
+  Our client provided ran a survey with their customers and we gathered the rest of the data. Though temperature was important, our data scientists uncovered more questions about product performance on farms in different US states.
+  
+  Click for more on how we worked the client to assess the problem.
+tags:
+- Intro
+title: Temperature impact on herbicide performance
+share: false
+profile: false
+comments: false
+reading_time: false
+---
+
+<img src="featured.jpg" style="border-radius: 5%;" />
+
+## The problem: product failure
+
+Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected high temperatures were inhibiting an herbicide, causing expensive wastage, but this wasn’t happening on all farm which was perplexing.
+
+[image of some scorched plants]
+
+The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures.
+
+[salesperson surveying a farmer]
+
+But was this really occurring in the field? And if so, at what temperatures? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+[flow chart of data being emailed or shipped]
+
+## Our solution: enriching end-user surveys
+
+Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
+
+```r
+summary(cars)
+```
+
+```
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+```
+
+## Digging deeper
+
+You can also embed plots, for example:
+
+<img src="{{< blogdown/postref >}}index_files/figure-html/pressure-1.png" width="672" />
