@@ -9,6 +9,8 @@ sections:
     
       in the field
   design:
+    spacing:
+      padding: ["40px","0","20px","0"]
     background:
       gradient_end: '#1b2724'
       gradient_start: '#264038'
@@ -29,7 +31,7 @@ sections:
       image:
         color: '#1b2724'
         text_color_light: yes
-    css_style: 'font-size: 200%;'
+    css_style: 'font-size: 160%;'
     spacing:
       padding: ["5px","0","5px","0"]
 - block: portfolio
@@ -44,6 +46,8 @@ sections:
     sort_by: Date
     sort_ascending: yes
   design:
+    spacing:
+      padding: ["40px","0","40px","0"]
     columns: '1'
     flip_alt_rows: yes
     view: community/showcase_rounded
@@ -68,7 +72,7 @@ sections:
       url: https://www.ecodata.tech/projects#contact
   design:
     spacing:
-      padding: ["20px","0","20px","0"]
+      padding: ["40px","0","20px","0"]
     background:
       image:
         color: '#1b2724'
