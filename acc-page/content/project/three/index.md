@@ -9,7 +9,7 @@ summary: |-
 
   Dense cloud cover blocks UV rays and impedes crop photosynthesis – both impact product performance. Measuring cloudiness from raw imagery across many dates and sites required data mining and automation outside our client’s expertise.
   
-  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in the humid east-coast state like Pennsylvania but not in  western Nebraska.
+  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in a humid east-coast state like Florida but not in  dry California.
   
   Click for more on how we used data engineering to extract cloud data.
 tags:

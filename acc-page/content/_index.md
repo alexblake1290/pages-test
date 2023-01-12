@@ -57,7 +57,7 @@ sections:
   design:
     background:
       image:
-        filename: apples1.jpg
+        filename: citrus1.jpg
         size: cover
         position: center
         parallax: yes

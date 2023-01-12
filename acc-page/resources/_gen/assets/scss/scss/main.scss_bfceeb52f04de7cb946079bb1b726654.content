@@ -9667,4 +9667,4 @@ div.chart {
   overflow-x: auto; }
 
 .big_headline h1 {
-  font-size: 600%; }
+  font-size: 400%; }
