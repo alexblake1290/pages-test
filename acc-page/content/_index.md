@@ -3,7 +3,11 @@ title: "Ecodata Technology"
 sections:
 - block: hero
   content:
-    title: Agrochemical performance in the field
+    title: |-
+    
+      Agrochemical performance
+    
+      in the field
   design:
     background:
       gradient_end: '#1b2724'
@@ -57,6 +61,8 @@ sections:
       text_color_light: yes
 - block: markdown
   design:
+    spacing:
+      padding: ["10px","0","10px","0"]
     background:
       image:
         filename: apples1.jpg
@@ -73,7 +79,7 @@ sections:
       url: https://www.ecodata.tech/projects#contact
   design:
     spacing:
-      padding: ["5px","0","5px","0"]
+      padding: ["10px","0","10px","0"]
     background:
       image:
         color: '#1b2724'
