@@ -20,6 +20,12 @@ comments: false
 reading_time: false
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+```
+
 <img src="featured.jpg" style="border-radius: 5%;" />
 
 ## The problem: product failure
@@ -39,9 +45,9 @@ But was this really occurring in the field? And if so, at what temperatures? Our
 
 Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
 
-```{r echo = FALSE, results = 'asis'}
-library(knitr)
-kable(mtcars[1:5, ], caption = "A sample of the end-user survey")
+```{r}
+kable(mtcars[1:5, ], format="latex") %>%
+  kable_styling(latex_options="scale_down")
 ```
 
 ## Digging deeper
