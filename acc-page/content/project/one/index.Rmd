@@ -2,28 +2,51 @@
 date: "2016-04-26T00:00:00Z"
 external_link: ""
 image:
-  caption: Photo by unknown
   focal_point: Smart
+  preview_only: true
 links:
-summary: Copepods are not well known among the general public, but they play a vital role in the healthy functioning of our oceans. Copepods comprise most of the marine zooplankton, over 75% by biomass. They are an important source of food, providing the link between phytoplankton – which capture energy from the sun – and the wider marine foodwebs that need this energy to thrive. They also play a critical role in the carbon cycle, transferring large quantities of carbon into the deep ocean through their waste.
+summary: |-
+  Agrochemical products deal with all the environmental extremes that occurs in the field. Our client suspected high mid-day air temperatures were preventing an herbicide from working. A simple survey from growers confirmed their suspicions, but they needed hard numbers to improve their product.
+  
+  Our client provided ran a survey with their customers and we gathered the rest of the data. Though temperature was important, our data scientists uncovered more questions about product performance on farms in different US states.
+  
+  Click for more on how we worked the client to assess the problem.
 tags:
 - Intro
-title: Copepods - why care?
+title: Temperature impact on herbicide performance
+share: false
+profile: false
+comments: false
+reading_time: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+<img src="featured.jpg" style="border-radius: 5%;" />
+
+## The problem: product failure
+
+Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected high temperatures were inhibiting an herbicide, causing expensive wastage, but this wasn’t happening on all farm which was perplexing.
+
+[image of some scorched plants]
+
+The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures.
+
+[salesperson surveying a farmer]
+
+But was this really occurring in the field? And if so, at what temperatures? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+[flow chart of data being emailed or shipped]
+
+## Our solution: enriching end-user surveys
+
+Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
+
+```{r echo = FALSE, results = 'asis'}
+library(knitr)
+kable(mtcars[1:5], caption = "A sample of the end-user survey")
 ```
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
+## Digging deeper
 
-## Including Plots
+We then used this information to pinpoint temperature thresholds where product failed, so our client knew when exactly their growers could spray to minimize waste. But how clear-cut these temperature thresholds were depended on state. We dug deeper to answer why.
 
-You can also embed plots, for example:
+(Links to other pages)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
