@@ -39,15 +39,13 @@ Placeholder text
 
 bargraph
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/ggplot1-1.png" width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/bar-1.png" width="672" />
 
 ## A case study: leveraging simple yes/no surveys
 
 Placeholder text
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/ggplot2-1.png" width="672" />
-
-<img src="{{< blogdown/postref >}}index_files/figure-html/ggplot3-1.png" width="672" />
 
 ## Distilling things down to actionable insights
 
