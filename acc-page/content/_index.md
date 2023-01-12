@@ -19,8 +19,7 @@ sections:
 - block: markdown
   content:
     text: |-
-      <br>
-      
+
       ## {{< icon name="terminal" pack="fas" >}} **Client:** American agrochemical producer
         
       ## {{< icon name="python" pack="fab" >}} **Themes:** Herbicide performance, regional climates 
@@ -33,7 +32,7 @@ sections:
         text_color_light: yes
     css_style: 'font-size: 160%;'
     spacing:
-      padding: ["5px","0","5px","0"]
+      padding: ["20px","0","5px","0"]
 - block: portfolio
   content:
     filters:
