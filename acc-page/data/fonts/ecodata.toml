@@ -1,0 +1,11 @@
+# Font style metadata
+name = "ecodata"
+
+# Optional Google font URL
+google_fonts = "family=Lexend+Deca&family=Roboto"
+
+# Font families
+heading_font = "Lexend Deca"
+body_font = "Roboto"
+nav_font = "Roboto"
+mono_font = "Roboto"
