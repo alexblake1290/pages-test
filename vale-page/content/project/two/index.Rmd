@@ -1,5 +1,5 @@
 ---
-date: "2022-12-1T00:00:00Z"
+date: "2022-12-01T00:00:00Z"
 external_link: ""
 image:
   focal_point: Smart
@@ -31,19 +31,26 @@ wh = "#ffffff"
 pl = "#6eb39c"
 ```
 
+<style>
+p.caption {
+  font-size: 0.8em;
+  padding: 0px 0px 40px 0px;
+}
+</style>
+
 ## Data sourcing
 
 Our client suspected extraordinarily high and low temperatures would impact the performance of their agrochemical used in citrus.
 
-Consumer survey data provided by the client included GPS coordinates for all orchards and date of application. Importantly, this included a record of when the product succeeded or failed.
+Consumer survey data provided by the client included GPS coordinates for all orchards and date of application. Importantly, this included a record of when the product succeeded or failed (Figure 1).
 
-```{r bar}
+```{r bar, fig.cap="Overall results from end-user survey on agrochemical success following product application."}
 demo_dat %>%
   group_by(Product_success) %>%
   summarize(value = n()) %>%
   ggplot(aes(x = Product_success, y = value)) +
     geom_bar(stat = 'identity', fill = pl) +
-    labs(title = '', x = '\nQuestion:\nWas the product effective?', y = 'Survey response count\n') +
+    labs(title = '', x = '\nQuestion:\n\nWas the product effective?', y = 'Survey response count\n') +
     ylim(0,80) +
     theme_ecodata() +
     theme(
@@ -56,8 +63,11 @@ demo_dat %>%
       panel.border = element_rect(colour=wh,fill=NA)
     )
 ```
+<br>
 
-To understand where the products were failing 25% of the time, we gathered data from local weather stations located within a few miles of each orchard. To do so, we programmed a data pipeline that draws historical data based on latitude, longitude, and Julian date to automatically provide the daily max temperature (highest recorded temperature that day).
+To understand where the products were failing 25% of the time, we gathered data from local weather stations located within a few miles of each orchard.
+
+To do so, we programmed a data pipeline that draws historical data based on latitude, longitude, and Julian date to automatically provide the daily max temperature (highest recorded temperature that day). Here's a snippet of what we did:
 
 ```{r code1, eval=FALSE, echo=TRUE}
 ad <- ad_raw%>% 
@@ -72,18 +82,19 @@ ad <- ad_raw%>%
 
 ## So what was the impact of daily temperature?
 #### Overall results
-Product performance was impacted by higher temperatures (Figure 1).
+Product performance was impacted by higher temperatures (Figure 2).
 
-```{r all}
+```{r all, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures, across all farms. High temperatures significantly impacted product performance (p < 0.001). The product fell below the client's key success rate of 75% (horizontal line) once temperatures exceeded 80F. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence."}
 mod1 = glm(response ~ Daily_high_temp, family=binomial, data=demo_dat)
 eff1 = allEffects(se=TRUE, xlevels=100, mod=mod1) %>%
   as.data.frame()
 
 ggplot(data=eff1$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   geom_line(linewidth=1,colour=pl) +
-  scale_y_continuous(labels=scales::percent) +
   geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
-  labs(title = '', x = '\nDaily max. temp. (F)\nAll farms', y = 'Product success (%)\n') +
+  geom_hline(yintercept=0.75,colour=wh,linetype="dashed") +
+  scale_y_continuous(labels=scales::percent) +
+  labs(title = '', x = '\nDaily max. temp. (F)\n\nAll farms', y = 'Product success (%)\n') +
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
@@ -96,7 +107,7 @@ ggplot(data=eff1$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   ) +
   geom_point(data=demo_dat, aes(x=Daily_high_temp, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.3, colour=pl)
 ```
-(Figure 1: Good result combining the data)
+<br>
 
 The simplest way to interpret these models is that steep, s-shaped curve is a strong correlation, while a flatter curve is a weak correlation. Each dot represents a piece of data collected in the consumer survey.
 
@@ -104,11 +115,10 @@ Our conclusion was clear. Hot days cause product failure - on days that reach hi
 
 However, our client was concerned these results didn’t hold true in all locations. The climate of the two states surveyed vary by a lot more than daily temperatures.
 
-
 #### West coast results
-You can see that in farms from California there is a strong ‘S’ shaped curve (Figure 2), indicating a sharp temperature threshold at 35.6C (XXF). We concluded that product recommendations should change in California and to tell growers to avoid using this agrochemical on hot days.
+You can see that in farms from California there is a strong ‘S’ shaped curve (Figure 3), indicating a sharp temperature threshold at 35.6C (XXF). We concluded that product recommendations should change in California and to tell growers to avoid using this agrochemical on hot days.
 
-```{r cali}
+```{r cali, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in California only. High temperatures significantly impacted product performance (p < 0.001). The product fell below the client's key success rate of 75% (horizontal line) once temperatures exceeded 86F. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence."}
 mod2 = glm(response ~ Daily_high_temp, family=binomial, data=dat2)
 eff2 = allEffects(se=TRUE, xlevels=100, mod=mod2) %>%
   as.data.frame()
@@ -116,8 +126,9 @@ eff2 = allEffects(se=TRUE, xlevels=100, mod=mod2) %>%
 ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   geom_line(linewidth=1,colour=pl) +
   geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
+  geom_hline(yintercept=0.75,colour=wh,linetype="dashed") +
   scale_y_continuous(labels=scales::percent) +
-  labs(title = '', x = '\nDaily max. temp. (F)\nCalifornia', y = 'Product success (%)\n') +
+  labs(title = '', x = '\nDaily max. temp. (F)\n\nCalifornia', y = 'Product success (%)\n') +
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
@@ -130,12 +141,11 @@ ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   ) +
   geom_point(data=dat2, aes(x=Daily_high_temp, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.3, colour=pl)
 ```
-(Figure 2: Great result just focusing on California)
 
 #### East coast results
 However, Floridian farms produced a flatter curve (Figure 3), suggesting that temperature only weakly predicted product success or failure. Something else was causing product failure at in this region.
 
-```{r fl}
+```{r fl, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found not strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence."}
 mod3 = glm(response ~ Daily_high_temp, family=binomial, data=dat3)
 eff3 = allEffects(se=TRUE, xlevels=100, mod=mod3) %>%
   as.data.frame()
@@ -144,7 +154,7 @@ ggplot(data=eff3$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   geom_line(linewidth=1,colour=pl) +
   geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
   scale_y_continuous(labels=scales::percent) +
-  labs(title = '', x = '\nDaily max. temp. (F)\nFlorida', y = 'Product success (%)\n') +
+  labs(title = '', x = '\nDaily max. temp. (F)\n\nFlorida', y = 'Product success (%)\n') +
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
@@ -157,7 +167,6 @@ ggplot(data=eff3$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   ) +
   geom_point(data=dat3, aes(x=Daily_high_temp, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.3, colour=pl)
 ```
-(Figure 3: mediocre result from Florida)
 
 ## Our take-home message
 
@@ -171,43 +180,19 @@ Cloud cover data is difficult to extract due to its complexity and density. Larg
 For this project, we are developing a pipeline to pull all photographs in a 1-5km buffer around surveyed farms. Our team is now organizing data and warehousing it for future modelling efforts. Check out a sample below:
 
 ```{r code2, eval=FALSE, echo=TRUE}
-# get max / min temps 
-all_temps <- map_dfr(1:length(near_stats), ~ {
+# function to fetch cloud cover data
+get_cc <- function(buffer) {
   
-  print(.x)
+  recs <- get_records(
+                 time_range = as.character(c(buffer$app_date - 7, buffer$app_date)), 
+                 products = get_cloudcov_supported()[5:6], # Sentinel
+                 aoi = buffer$geometry, 
+                 as_sf = FALSE)
+  clouds <- calc_cloudcov(recs, aoi = buffer$geometry, 
+                          write_records = FALSE, write_cloud_masks = FALSE, 
+                          dir_out = "data/cloud-cover/")
   
-  # set while conditions 
-  i <- 1 # weather station (1 = nearest, 2 = second nearest, ...)
-  rec_ind <- FALSE # indicator of records in output
-  
-  # loop to find nearest weather station with temp data
-  while(!rec_ind) {
-    near_ids <- map_chr(near_stats[.x], ~ .x %>% slice(i) %>% pull(id))
-    ad_ids <- ad %>%
-      bind_cols(near_id = near_ids) 
-    
-    out_row <- ghcnd(ad_ids$near_id[.x], 
-                     date_min = parse_date(ad_ids$app_date[.x], format = "%m/%d/%y"), 
-                     date_max = parse_date(ad_ids$app_date[.x], format = "%m/%d/%y"),
-                     var = c("TMAX", "TMIN")) %>%
-    select(id, year, month, element, starts_with("VALUE")) %>%
-    filter(element %in% c("TMAX", "TMIN")) %>%
-    pivot_longer(starts_with("VALUE"), names_to = "day", values_to = "temp_C") %>%
-    mutate(across(day, ~ as.integer(str_sub(.x, 6, nchar(.x)))), 
-           across(temp_C, ~ .x / 10)) %>%
-    pivot_wider(names_from = "element", values_from = "temp_C") %>%
-    mutate(dt = parse_date(paste0(year, "-", 
-                                  str_pad(month, 2, "left", "0"), "-", 
-                                  str_pad(day,   2, "left", "0"))), 
-           index = str_pad(.x, 3, "left", "0")) %>%
-    filter(dt == ad_ids$app_date[.x])
-    
-    # update while conditions
-    rec_ind <- ifelse(nrow(out_row) == 1, 
-                      ifelse(!is.na(out_row$TMAX) & !is.na(out_row$TMIN), TRUE, FALSE), FALSE)
-    i <- i + 1
-  }
-  return(out_row)
+  clouds %>%
+    write_csv(file = paste0("data/cover-dfs-new/", buffer$id, "_cloud_cover.csv"))
 }
-)
 ```
