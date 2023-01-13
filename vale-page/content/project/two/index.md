@@ -78,8 +78,8 @@ You can see that in farms from California there is a strong ‘S’ shaped curve
 However, Floridian farms produced a flatter curve (Figure 3), suggesting that temperature only weakly predicted product success or failure. Something else was causing product failure in this region.
 
 <div class="figure">
-<img src="{{< blogdown/postref >}}index_files/figure-html/fl-1.png" alt="Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found not strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence." width="672" />
-<p class="caption">Figure 4: Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found not strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence.</p>
+<img src="{{< blogdown/postref >}}index_files/figure-html/fl-1.png" alt="Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found no strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence." width="672" />
+<p class="caption">Figure 4: Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found no strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence.</p>
 </div>
 
 ## Our take-home message

@@ -145,7 +145,7 @@ ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
 #### East coast results
 However, Floridian farms produced a flatter curve (Figure 3), suggesting that temperature only weakly predicted product success or failure. Something else was causing product failure in this region.
 
-```{r fl, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found not strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence."}
+```{r fl, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in Florida only. Here we found no strong statistical impact of temperature on agrochemical performance (p = 0.82), with product success rate steady at around 75%. Each point represents a survey response. Shaded region indicates uncertainty: tighter shading indicates higher confidence."}
 mod3 = glm(response ~ Daily_high_temp, family=binomial, data=dat3)
 eff3 = allEffects(se=TRUE, xlevels=100, mod=mod3) %>%
   as.data.frame()
