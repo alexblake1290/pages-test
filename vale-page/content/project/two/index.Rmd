@@ -59,7 +59,7 @@ demo_dat %>%
 
 To understand where the products were failing 25% of the time, we gathered data from local weather stations located within a few miles of each orchard. To do so, we programmed a data pipeline that draws historical data based on latitude, longitude, and Julian date to automatically provide the daily max temperature (highest recorded temperature that day).
 
-```{r code1, eval=FALSE}
+```{r code1, eval=FALSE, echo=TRUE}
 ad <- ad_raw%>% 
   select(lat, lon, app_date = "App. date") %>%
   mutate(pre_date = app_date - 7) %>%
@@ -170,7 +170,7 @@ Cloud cover data is difficult to extract due to its complexity and density. Larg
 
 For this project, we are developing a pipeline to pull all photographs in a 1-5km buffer around surveyed farms. Our team is now organizing data and warehousing it for future modelling efforts. Check out a sample below:
 
-```{r code2, eval=FALSE}
+```{r code2, eval=FALSE, echo=TRUE}
 # get max / min temps 
 all_temps <- map_dfr(1:length(near_stats), ~ {
   

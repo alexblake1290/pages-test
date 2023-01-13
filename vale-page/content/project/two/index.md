@@ -26,6 +26,16 @@ Consumer survey data provided by the client included GPS coordinates for all orc
 To understand where the products were failing 25% of the time, we gathered data from local weather stations located within a few miles of each orchard. To do so, we programmed a data pipeline that draws historical data based on latitude, longitude, and Julian date to automatically provide the daily max temperature (highest recorded temperature that day).
 
 
+```r
+ad <- ad_raw%>% 
+  select(lat, lon, app_date = "App. date") %>%
+  mutate(pre_date = app_date - 7) %>%
+  mutate(across(c(pre_date, app_date), ~ as.character(.x))) %>%
+  distinct(lat, lon, app_date, pre_date) %>%
+  ungroup() %>%
+  mutate(file_index = str_pad(as.character(1:n()), 2, "left", "0")) %>%
+  mutate(id = str_pad(as.character(1:nrow(.)), 3, "left", "0")) # nearby station
+```
 
 ## So what was the impact of daily temperature?
 #### Overall results
@@ -65,3 +75,44 @@ Cloud cover data is difficult to extract due to its complexity and density. Larg
 For this project, we are developing a pipeline to pull all photographs in a 1-5km buffer around surveyed farms. Our team is now organizing data and warehousing it for future modelling efforts. Check out a sample below:
 
 
+```r
+# get max / min temps 
+all_temps <- map_dfr(1:length(near_stats), ~ {
+  
+  print(.x)
+  
+  # set while conditions 
+  i <- 1 # weather station (1 = nearest, 2 = second nearest, ...)
+  rec_ind <- FALSE # indicator of records in output
+  
+  # loop to find nearest weather station with temp data
+  while(!rec_ind) {
+    near_ids <- map_chr(near_stats[.x], ~ .x %>% slice(i) %>% pull(id))
+    ad_ids <- ad %>%
+      bind_cols(near_id = near_ids) 
+    
+    out_row <- ghcnd(ad_ids$near_id[.x], 
+                     date_min = parse_date(ad_ids$app_date[.x], format = "%m/%d/%y"), 
+                     date_max = parse_date(ad_ids$app_date[.x], format = "%m/%d/%y"),
+                     var = c("TMAX", "TMIN")) %>%
+    select(id, year, month, element, starts_with("VALUE")) %>%
+    filter(element %in% c("TMAX", "TMIN")) %>%
+    pivot_longer(starts_with("VALUE"), names_to = "day", values_to = "temp_C") %>%
+    mutate(across(day, ~ as.integer(str_sub(.x, 6, nchar(.x)))), 
+           across(temp_C, ~ .x / 10)) %>%
+    pivot_wider(names_from = "element", values_from = "temp_C") %>%
+    mutate(dt = parse_date(paste0(year, "-", 
+                                  str_pad(month, 2, "left", "0"), "-", 
+                                  str_pad(day,   2, "left", "0"))), 
+           index = str_pad(.x, 3, "left", "0")) %>%
+    filter(dt == ad_ids$app_date[.x])
+    
+    # update while conditions
+    rec_ind <- ifelse(nrow(out_row) == 1, 
+                      ifelse(!is.na(out_row$TMAX) & !is.na(out_row$TMIN), TRUE, FALSE), FALSE)
+    i <- i + 1
+  }
+  return(out_row)
+}
+)
+```
