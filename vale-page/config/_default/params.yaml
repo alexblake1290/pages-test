@@ -43,7 +43,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: 'Content by EcoData Technology LLC 2023'
     license:
       enable: false
       allow_derivatives: false
