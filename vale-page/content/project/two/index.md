@@ -42,7 +42,8 @@ product failure or success).
 #### Overall results
 Product performance was impacted by higher temperatures (Figure 1).
 
-(Figure 1: OK result combining the data)
+<img src="{{< blogdown/postref >}}index_files/figure-html/all-1.png" width="672" />
+(Figure 1: Good result combining the data)
 
 Hot days may cause pesticide failure - on days that reach high maximum temperatures,
 growers were more likely to report product failure. 
@@ -52,14 +53,15 @@ However there's still some scatter in the combined results. We sliced through th
 #### West coast results
 You can see that in farms from California there is a strong 'S' shaped curve (Figure 2), indicating a sharp temperature threshold at 35.6C (XXF). If you look at the original data (cyan dots) in Figure 2, you can see that pesticide success only occurred twice once maximum daily temperature went over 35C (XXF).
 
-(Figure 2: GREAT result just focusing on California)
+<img src="{{< blogdown/postref >}}index_files/figure-html/cali-1.png" width="672" />
+(Figure 2: Great result just focusing on California)
 
 #### East coast results
 However, Floridian farms produced a flatter curve (Figure 3), suggesting that temperature only weakly predicted product success or failure.
 
+<img src="{{< blogdown/postref >}}index_files/figure-html/fl-1.png" width="672" />
 (Figure 3: mediocre result from Florida)
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/ggplot2-1.png" width="672" />
 This means there must be some other factor at play on the East Coast vs the West, which may be interacting with temperature.  By determining this unknown factor then we can pinpoint similar clear thresholds for end-users in Florida as well.
 
 ## Our take-home message

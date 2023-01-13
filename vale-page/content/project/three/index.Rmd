@@ -1,16 +1,17 @@
 ---
+title: 'Question 3 for Agrochemical Scoping Project: How does average cloud cover
+  impact product performance on the East Coast?'
+external_link: ''
 date: "2016-04-27T00:00:00Z"
-external_link: ""
+links: null
+summary: null
 image:
   focal_point: Smart
-  preview_only: true
-links:
-summary: Null
-title: "Question 3 for Agrochemical Scoping Project: How does average cloud cover impact product performance on the East Coast?"
-share: false
-profile: false
-comments: false
-reading_time: false
+  preview_only: yes
+share: no
+profile: no
+comments: no
+reading_time: no
 ---
 
 ```{r setup, include=FALSE}
@@ -20,8 +21,13 @@ library(kableExtra)
 library(ggplot2)
 library(tidyverse)
 library(effects)
+library(ggeffects)
 library(ecodatamisc)
-demo_dat <- read.csv("demo.csv")
+demo_dat = read.csv("demo.csv")
+demo_dat$response = as.factor(demo_dat$Product_success)
+dat2 = subset(demo_dat,State=="California")
+dat3 = subset(demo_dat,State=="Florida")
+
 bg = "#1b2724"
 wh = "#ffffff"
 pl = "#6eb39c"
@@ -54,13 +60,51 @@ cover.
 
 ## Overall result from the cloud-cover analysis
 
-As with high temperatures in Florida, product failure was slightly less likely on farms that have experienced a week of high cloud cover (Figure 2). Generally, the rate of failure is stable
-across all ranges of cloud cover (25% chance of product failure occurring).
+As with high temperatures in Florida, product failure was slightly less likely on farms that have experienced a week of high cloud cover (Figure 2). Generally, the rate of failure is stable across all ranges of cloud cover (25% chance of product failure occurring).
 
+```{r cloud}
+mod4 = glm(response ~ Cloud_cover, family=binomial, data=dat3); summary(mod4)
+eff4 = allEffects(se=TRUE, xlevels=100, mod=mod4) %>%
+  as.data.frame()
+
+ggplot(data=eff4$Cloud_cover,aes(x=Cloud_cover, y=fit))+
+  geom_line(linewidth=1,colour=pl) +
+  geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
+  labs(title = '', x = '\nAverage weekly cloud cover (%)', y = 'Probability of product success\n') +
+  theme_ecodata() +
+  theme(
+    panel.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=NA),
+    axis.line = element_line(colour=wh),
+    axis.text = element_text(colour=wh),
+    axis.title.x = element_text(colour=wh),
+    axis.title.y = element_text(colour=wh),
+    panel.border = element_rect(colour=wh,fill=NA)
+  ) +
+  geom_point(data=dat3, aes(x=Cloud_cover, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.3, colour=pl)
+```
 (Figure 2: weak prediction with just cloud cover)
 
 However, when accounting for temperature and cloud cover at the same time, we found that hot, clear days were much more likely to cause product failure than hot but cloudy days (Figure 3). When cloud cover is below 15%, hot days above 35.4C were much more likely to result in product failure, similar to the results found in California.
 
+```{r interaction}
+mod5 = glm(response ~ Daily_high_temp * Cloud_cover, family=binomial, data=dat3); summary(mod5)
+df = ggpredict(mod5, terms=c("Daily_high_temp[all]", "Cloud_cover[20,55]"), ci.lvl=NA)
+ggplot(df,aes(x=x,y=predicted,group=group)) +
+  geom_line(linewidth=1,colour=pl,aes(linetype=group)) +
+  labs(title = '', x = '\nDaily max temperature (F)', y = 'Probability of product success\n') +
+  theme_ecodata() +
+  theme(
+    legend.position="none",
+    panel.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=NA),
+    axis.line = element_line(colour=wh),
+    axis.text = element_text(colour=wh),
+    axis.title.x = element_text(colour=wh),
+    axis.title.y = element_text(colour=wh),
+    panel.border = element_rect(colour=wh,fill=NA)
+  )
+```
 (Figure 3: great p value for interaction of temp and cloudiness)
 
 ## What is the takeaway?
