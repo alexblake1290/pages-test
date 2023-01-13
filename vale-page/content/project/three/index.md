@@ -45,63 +45,10 @@ cover.
 
 As with high temperatures in Florida, product failure was slightly less likely on farms that have experienced a week of high cloud cover (Figure 2). Generally, the rate of failure is stable across all ranges of cloud cover (25% chance of product failure occurring).
 
-
-```
-## 
-## Call:
-## glm(formula = response ~ Cloud_cover, family = binomial, data = dat3)
-## 
-## Deviance Residuals: 
-##     Min       1Q   Median       3Q      Max  
-## -1.7848  -1.2491   0.7367   0.9365   1.1458  
-## 
-## Coefficients:
-##             Estimate Std. Error z value Pr(>|z|)
-## (Intercept) -0.03271    0.61190  -0.053    0.957
-## Cloud_cover  0.01536    0.01154   1.331    0.183
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 57.286  on 44  degrees of freedom
-## Residual deviance: 55.425  on 43  degrees of freedom
-## AIC: 59.425
-## 
-## Number of Fisher Scoring iterations: 4
-```
-
 <img src="{{< blogdown/postref >}}index_files/figure-html/cloud-1.png" width="672" />
 (Figure 2: weak prediction with just cloud cover)
 
 However, when accounting for temperature and cloud cover at the same time, we found that hot, clear days were much more likely to cause product failure than hot but cloudy days (Figure 3). When cloud cover is below 15%, hot days above 35.4C were much more likely to result in product failure, similar to the results found in California.
-
-
-```
-## 
-## Call:
-## glm(formula = response ~ Daily_high_temp * Cloud_cover, family = binomial, 
-##     data = dat3)
-## 
-## Deviance Residuals: 
-##      Min        1Q    Median        3Q       Max  
-## -2.76102  -0.14589   0.09834   0.46179   1.23467  
-## 
-## Coefficients:
-##                              Estimate Std. Error z value Pr(>|z|)   
-## (Intercept)                 48.920843  17.684286   2.766  0.00567 **
-## Daily_high_temp             -0.621579   0.227233  -2.735  0.00623 **
-## Cloud_cover                 -0.909722   0.324100  -2.807  0.00500 **
-## Daily_high_temp:Cloud_cover  0.011730   0.004192   2.798  0.00514 **
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## (Dispersion parameter for binomial family taken to be 1)
-## 
-##     Null deviance: 57.286  on 44  degrees of freedom
-## Residual deviance: 25.086  on 41  degrees of freedom
-## AIC: 33.086
-## 
-## Number of Fisher Scoring iterations: 7
-```
 
 <img src="{{< blogdown/postref >}}index_files/figure-html/interaction-1.png" width="672" />
 (Figure 3: great p value for interaction of temp and cloudiness)
