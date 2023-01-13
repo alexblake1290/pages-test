@@ -1,11 +1,10 @@
 State,Product_success,Daily_high_temp,Cloud_cover,,,,Code
-California,No,50,,,,,0
-California,No,61,,,,,0
+California,Yes,50,,,,,0
+California,Yes,61,,,,,0
 California,No,70,,,,,0
 California,No,72,,,,,0
-California,No,85,,,,,0
+California,Yes,85,,,,,0
 California,No,86,,,,,0
-California,No,44,,,,,0
 California,No,92,,,,,0
 California,No,93,,,,,0
 California,No,93,,,,,0
@@ -15,7 +14,7 @@ California,No,100,,,,,0
 California,No,101,,,,,0
 California,No,106,,,,,0
 California,Yes,84,,,,,1
-California,Yes,89,,,,,1
+California,No,89,,,,,1
 California,Yes,40,,,,,1
 California,Yes,43,,,,,1
 California,Yes,45,,,,,1
@@ -57,8 +56,8 @@ California,Yes,85,,,,,1
 California,Yes,86,,,,,1
 California,Yes,86,,,,,1
 California,Yes,90,,,,,1
-California,Yes,91,,,,,1
-California,Yes,97,,,,,1
+California,No,91,,,,,1
+California,No,97,,,,,1
 Florida,No,67,86,,,,0
 Florida,No,73,74,,,,0
 Florida,No,75,46,,,,0
