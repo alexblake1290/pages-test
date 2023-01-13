@@ -13,7 +13,19 @@ comments: false
 reading_time: false
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(tidyverse)
+library(effects)
+library(ecodatamisc)
+demo_dat <- read.csv("demo.csv")
+bg = "#1b2724"
+wh = "#ffffff"
+pl = "#6eb39c"
+```
 
 ## Data sourcing
 
