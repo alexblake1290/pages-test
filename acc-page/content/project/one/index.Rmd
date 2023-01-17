@@ -6,11 +6,11 @@ image:
   preview_only: true
 links:
 summary: |-
-  Agrochemical products deal with all the environmental extremes that occurs in the field. Our client suspected high mid-day air temperatures were preventing an herbicide from working. A simple survey from growers confirmed their suspicions, but they needed hard numbers to improve their product.
+  Agrochemical products deal with all the environmental extremes that occur in the field. Our client suspected high air temperatures were preventing an herbicide from working. A simple survey of growers confirmed their suspicions, but they needed hard numbers to improve their product.
   
-  Our client provided ran a survey with their customers and we gathered the rest of the data. Though temperature was important, our data scientists uncovered more questions about product performance on farms in different US states.
+  We gathered the rest of the data. Though temperature was important, our data scientists uncovered more questions about product performance on farms in different US states.
   
-  Click for more on how we worked the client to assess the problem.
+  Click for more on how we scoped the problem.
 tags:
 - Intro
 title: Temperature impact on herbicide performance
@@ -24,30 +24,49 @@ reading_time: false
 knitr::opts_chunk$set(echo = FALSE)
 library(knitr)
 library(kableExtra)
+library(ggplot2)
+library(tidyverse)
+library(effects)
+library(ecodatamisc)
+demo_dat = read.csv("demo.csv")
+demo_dat$response = as.factor(demo_dat$Product_success)
+dat2 = subset(demo_dat,State=="California")
+dat3 = subset(demo_dat,State=="Florida")
+
+bg = "#1b2724"
+wh = "#ffffff"
+pl = "#6eb39c"
 ```
+
+<style>
+p.caption {
+  font-size: 0.8em;
+  padding: 0px 0px 40px 0px;
+}
+</style>
 
 <img src="featured.jpg" style="border-radius: 5%;" />
 
 ## The problem: product failure
 
-Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected high temperatures were inhibiting an herbicide, causing expensive wastage, but this wasn’t happening on all farm which was perplexing.
+Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected extraordinarily high and low temperatures would impact the performance of their agrochemical used in citrus, causing expensive wastage. 
 
 <img src="img2.jpg" style="border-radius: 5%;" />
 
-The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures.
+The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures. What was perplexing is it wasn’t happening on all farms.
 
 <img src="img3.jpg" style="border-radius: 5%;" />
 
-But was this really occurring in the field? And if so, at what temperatures? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+So what was really occurring in the field? And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
 
-[flow chart of data being emailed or shipped]
+<img src="flowchart.jpg" style="border-radius: 5%;" />
 
 ## Our solution: enriching end-user surveys
 
 Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
 
 ```{r}
-kable(mtcars[1:5, ])
+kable(demo_dat[1:5, ])
 #kable(mtcars[1:5, ], format="latex") %>%
 #  kable_styling(latex_options="scale_down")
 ```

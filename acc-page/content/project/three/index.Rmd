@@ -1,0 +1,148 @@
+---
+title: 'Data engineering to uncover root cause'
+external_link: ''
+date: "2016-04-28T00:00:00Z"
+links: null
+summary: |-
+
+  Dense cloud cover blocks UV rays and impedes crop photosynthesis – both impact product performance. Measuring cloudiness from raw imagery across many dates and sites required data mining and automation outside our client’s expertise.
+  
+  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in a humid east-coast state like Florida but not in  dry California.
+  
+  Click for more on how we extracted cloud data with data engineering.
+image:
+  focal_point: Smart
+  preview_only: yes
+tags:
+- Solution
+share: no
+profile: no
+comments: no
+reading_time: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(kableExtra)
+library(ggplot2)
+library(tidyverse)
+library(effects)
+library(ggeffects)
+library(ecodatamisc)
+demo_dat = read.csv("demo.csv")
+demo_dat$response = as.factor(demo_dat$Product_success)
+dat2 = subset(demo_dat,State=="California")
+dat3 = subset(demo_dat,State=="Florida")
+
+bg = "#1b2724"
+wh = "#ffffff"
+pl = "#6eb39c"
+```
+
+<style>
+p.caption {
+  font-size: 0.8em;
+  padding: 0px 0px 40px 0px;
+}
+</style>
+
+## Why cloud cover mattered
+
+A key difference between growing in the moist East Coast and West Coast is cloud cover. Dense cloud cover blocks UV rays, but also starves fast-growing crop plants of light for photosynthesis. Both factors can affect agrochemical products.
+
+<img src="featured.jpg" style="border-radius: 5%;" />
+
+Leveraging location information and end-user surveys provided by the client, we took care of the rest with our data mining expertise.
+
+## What makes cloud cover tricky to measure?
+
+Cloudiness is easy to define but hard to measure with remote sensing. LandSat 8 is a satellite photography program that hosts images taken of the Earths surface. We can’t just download the photos – these are millions of high-resolution images.
+
+To explore how cloud cover impacted product outcomes in Florida, we needed to estimate cloud cover on farms for the entire week prior to product application.
+
+<img src="landsat.jpg" style="border-radius: 5%;" />
+
+## How we extracted cloud cover data
+
+First we had to limit measurements to each farm. Using GIS tools, we mapped the locations of farms and drew 5km circles around the properties. We then downloaded imagery for the week leading up to product application. With automation we scaled this process efficiently to gather data for every grower’s farm. Here's a sample of how we did it:
+
+```{r code2, eval=FALSE, echo=TRUE}
+# function to fetch cloud cover data
+get_cc <- function(buffer) {
+  
+  recs <- get_records(
+                 time_range = as.character(c(buffer$app_date - 7, buffer$app_date)), 
+                 products = get_cloudcov_supported()[5:6], # Sentinel
+                 aoi = buffer$geometry, 
+                 as_sf = FALSE)
+  clouds <- calc_cloudcov(recs, aoi = buffer$geometry, 
+                          write_records = FALSE, write_cloud_masks = FALSE, 
+                          dir_out = "data/cloud-cover/")
+  
+  clouds %>%
+    write_csv(file = paste0("data/cover-dfs-new/", buffer$id, "_cloud_cover.csv"))
+}
+```
+
+We then calculated which proportion of the photograph was covered with thick clouds (% cover) using R. We took the average values for the week prior and viola – user surveys were enriched with weekly % cloud cover, specific to each and every farm that used our client’s herbicide.
+
+```{r}
+kable(dat3[1:5, ])
+#kable(mtcars[1:5, ], format="latex") %>%
+#  kable_styling(latex_options="scale_down")
+```
+
+## Overall result from the cloud-cover analysis
+
+As with high temperatures in Florida, product failure was slightly less likely on farms that have experienced a week of high cloud cover (Figure 2). Generally, the rate of failure is stable across all ranges of cloud cover (25% chance of product failure occurring).
+
+```{r cloud, fig.cap="Like temperature, cloud cover alone wasn't great at predicting product failure."}
+mod4 = glm(response ~ Cloud_cover, family=binomial, data=dat3)
+eff4 = allEffects(se=TRUE, xlevels=100, mod=mod4) %>%
+  as.data.frame()
+
+ggplot(data=eff4$Cloud_cover,aes(x=Cloud_cover, y=fit))+
+  geom_line(linewidth=1,colour=pl) +
+  geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
+  labs(title = '', x = '\nAverage weekly cloud cover (%)', y = 'Probability of product success\n') +
+  theme_ecodata() +
+  theme(
+    panel.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=NA),
+    axis.line = element_line(colour=wh),
+    axis.text = element_text(colour=wh),
+    axis.title.x = element_text(colour=wh),
+    axis.title.y = element_text(colour=wh),
+    panel.border = element_rect(colour=wh,fill=NA)
+  ) +
+  geom_point(data=dat3, aes(x=Cloud_cover, y=as.double(response)-1), position=position_jitter(w=0.05, h=0), alpha=.3, colour=pl)
+```
+
+However, when accounting for temperature and cloud cover at the same time, we found that hot, clear days were much more likely to cause product failure than hot but cloudy days (Figure 3). When cloud cover is below 15%, hot days above 86F were much more likely to result in product failure, similar to the results found in California.
+
+```{r interaction, fig.cap="But the interplay of cloudiness and temperature was key. The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days."}
+mod5 = glm(response ~ Daily_high_temp * Cloud_cover, family=binomial, data=dat3)
+df = ggpredict(mod5, terms=c("Daily_high_temp[all]", "Cloud_cover[20,55]"), ci.lvl=NA)
+ggplot(df,aes(x=x,y=predicted,group=group)) +
+  geom_line(linewidth=1,colour=pl,aes(linetype=group)) +
+  labs(title = '', x = '\nDaily max temperature (F)', y = 'Probability of product success\n') +
+  theme_ecodata() +
+  theme(
+    legend.position="none",
+    panel.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=NA),
+    axis.line = element_line(colour=wh),
+    axis.text = element_text(colour=wh),
+    axis.title.x = element_text(colour=wh),
+    axis.title.y = element_text(colour=wh),
+    panel.border = element_rect(colour=wh,fill=NA)
+  )
+```
+
+## How we improved the end-user experience
+Cloud cover turned out to be key. While temperature explained product failure in drier California, we uncovered a more nuanced interplay of temperature and cloud cover in wetter Florida. With these insights our client could advise growers with different agricultural systems how to get the most out of their product.
+
+<img src="orchard.jpeg" style="border-radius: 5%;" />
+
+For end-users on the moist East coast, the best recommendation was to avoid using products on days with warm AND clear nights/mornings. That is, resembling a dry, hot Californian climate. But on overcast days, while not guaranteed, they may be able to get away with applying pesticide anyway.
