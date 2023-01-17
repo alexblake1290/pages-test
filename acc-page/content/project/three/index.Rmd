@@ -9,7 +9,7 @@ summary: |-
   
   We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in a humid east-coast state like Florida but not in  dry California.
   
-  Click for more on how we extracted cloud data with data engineering.
+  Click for more on how we engineered landsat data.
 image:
   focal_point: Smart
   preview_only: yes

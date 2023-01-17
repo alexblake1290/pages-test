@@ -103,6 +103,3 @@ Here we would suggest that our client provide confident advice to end-users in s
 For end-users in Florida, their advice should be transparent but qualified. They wouldn’t want to bet the farm on it (no pun intended). A result like this justifies a closer look for the product team or maybe warning salespeople that there is a small risk of high temperatures messing up the product.
 
 Our client wanted to know exactly when their Pennsylvanian customers should spray, so we dug even deeper and found the answer in cloud cover.
-
-(Links to other pages)
-
