@@ -62,21 +62,6 @@ sections:
         position: center
         parallax: yes
         text_color_light: yes
-- block: hero
-  content:
-    image:
-      filename: ecodatalogo.svg
-    cta:
-      label: Reach out
-      url: https://www.ecodata.tech/projects#contact
-  design:
-    spacing:
-      padding: ["40px","0","20px","0"]
-    background:
-      image:
-        color: '#1b2724'
-        text_color_light: yes
-  id: projects
 date: "2022-10-24"
 type: landing
 ---

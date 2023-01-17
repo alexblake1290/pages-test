@@ -123,6 +123,3 @@ The rest of the information we used was generated in-house by our environmental 
 We then used this information to pinpoint temperature thresholds where product failed, so our client knew when exactly their growers could spray to minimize waste.
 
 But how clear-cut these temperature thresholds were depended on state. **We dug deeper to answer why.**
-
-<a href="https://serene-choux-d79a21.netlify.app/" class="button">Home</a><a href="https://serene-choux-d79a21.netlify.app/project/two" class="button">Pt 2: How we dug deeper</a><a href="https://serene-choux-d79a21.netlify.app/project/three" class="button">Pt 3: Our data engineering</a>
-
