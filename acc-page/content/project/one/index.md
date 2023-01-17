@@ -43,7 +43,7 @@ The client sales team had collected simple survey responses from growers, record
 
 So what was really occurring in the field? And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
 
-<img src="flowchart.jpg" style="border-radius: 5%;" />
+<img src="flowchart.png" style="border-radius: 5%;" />
 
 ## Our solution: enriching end-user surveys
 
