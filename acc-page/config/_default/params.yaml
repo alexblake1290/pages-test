@@ -31,6 +31,7 @@ marketing:
 
 header:
   navbar:
+    block: econavbar
     enable: true
     align: l
     show_logo: true
