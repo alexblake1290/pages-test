@@ -8,13 +8,13 @@ main:
     url: /
     weight: 10
   - name: Posts
-    url: /projects/one
+    url: /project/one
     weight: 20
   - name: Projects
-    url: /projects/two
+    url: /project/two
     weight: 30
   - name: Talks
-    url: /projects/three
+    url: /project/three
     weight: 40
 
 # Link to a PDF of your resume/CV from the menu.
