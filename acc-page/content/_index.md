@@ -20,11 +20,11 @@ sections:
   content:
     text: |-
 
-      ## {{< icon name="terminal" pack="fas" >}} **Client:** American agrochemical producer
+      ## {{< icon name="user-tie" pack="fas" >}} **Client:** American agrochemical producer
         
-      ## {{< icon name="python" pack="fab" >}} **Themes:** Herbicide performance, regional climates 
+      ## {{< icon name="briefcase" pack="fas" >}} **Themes:** Herbicide performance, regional climates 
         
-      ## {{< icon name="r-project" pack="fab" >}} **Impact: End-user wastage down xx%**
+      ## {{< icon name="terminal" pack="fas" >}} **Techniques:** End-user surveys, binomial GLM, image extraction, R
   design:
     background:
       image:
@@ -57,7 +57,7 @@ sections:
   design:
     background:
       image:
-        filename: citrus1.jpg
+        filename: orchard.jpeg
         size: cover
         position: center
         parallax: yes

@@ -7,13 +7,13 @@ main:
   - name: Home
     url: /
     weight: 10
-  - name: Posts
+  - name: Scoping
     url: /project/one
     weight: 20
-  - name: Projects
+  - name: Communication
     url: /project/two
     weight: 30
-  - name: Talks
+  - name: Data Engineering
     url: /project/three
     weight: 40
 

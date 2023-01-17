@@ -29,7 +29,6 @@ library(tidyverse)
 library(effects)
 library(ecodatamisc)
 demo_dat = read.csv("demo.csv")
-demo_dat$response = as.factor(demo_dat$Product_success)
 dat2 = subset(demo_dat,State=="California")
 dat3 = subset(demo_dat,State=="Florida")
 
@@ -44,52 +43,86 @@ p.caption {
   padding: 0px 0px 40px 0px;
 }
 .button {
-  background-color: #1b2724;
-  border: #6eb39c;
+  appearance: none;
+  background-color: transparent;
+  border: 3px solid #6eb39c;
+  border-radius: 15px;
+  box-sizing: border-box;
   color: #6eb39c;
-  padding: 15px 32px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
   text-align: center;
   text-decoration: none;
-  border-radius: 12px;
-  transition-duration: 0.4s;
-  display: inline-block;
-  font-size: 16px;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 33%;
+  will-change: transform;
 }
+
+.button:disabled {
+  pointer-events: none;
+}
+
 .button:hover {
-  color: white;
-  border: white;
+  color: #ffffff;
+  border: 3px solid #ffffff;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+.button:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 </style>
 
-<img src="featured.jpg" style="border-radius: 5%;" />
-
 ## The problem: product failure
 
-Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. Our client suspected extraordinarily high and low temperatures would impact the performance of their agrochemical used in citrus, causing expensive wastage. 
+Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. 
+
+> *"We suspected extraordinarily high and low temperatures might impact the performance of our agrochemical used by citrus growers, causing expensive wastage for our customers."*
 
 <img src="img2.jpg" style="border-radius: 5%;" />
 
-The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures. What was perplexing is it wasn’t happening on all farms.
+The client sales team had collected simple survey responses from growers, recording if their product had worked or not. These end-users were reporting more product failure in spring around days with extremely high maximum temperatures. **What was perplexing is it wasn’t happening on all farms.**
 
 <img src="img3.jpg" style="border-radius: 5%;" />
 
-So what was really occurring in the field? And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+**So what was really occurring in the field?** And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
 
-<img src="flowchart.png" style="border-radius: 5%;" />
+```{r, fig.cap="Sample of the initial end-user survey provided to us by the client (with GPS coordinates omitted)."}
+#kable(demo_dat[1:5, 1:])
+#kable(mtcars[1:5, ], format="latex") %>%
+#  kable_styling(latex_options="scale_down")
+demo_dat[1:5, ] %>%
+  kbl() %>%
+  kable_minimal()
+```
 
 ## Our solution: enriching end-user surveys
 
-Surprisingly, that was all the data we needed from our client to start answering their question. The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
+> *"Surprisingly, that was all the data we had to provide to Ecodata so they could start answering our questions."*
 
-```{r}
-kable(demo_dat[1:5, ])
-#kable(mtcars[1:5, ], format="latex") %>%
-#  kable_styling(latex_options="scale_down")
-```
+The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
+
+<img src="flowchart.png" style="border-radius: 5%;" />
 
 ## Digging deeper
 
-We then used this information to pinpoint temperature thresholds where product failed, so our client knew when exactly their growers could spray to minimize waste. But how clear-cut these temperature thresholds were depended on state. We dug deeper to answer why.
+We then used this information to pinpoint temperature thresholds where product failed, so our client knew when exactly their growers could spray to minimize waste.
 
-<a href="https://serene-choux-d79a21.netlify.app/" class="button">Home</a><a href="https://serene-choux-d79a21.netlify.app/project/two" class="button">How we dug deeper</a><button name="button" onclick="https://serene-choux-d79a21.netlify.app/project/three">Cloud cover</button>
+But how clear-cut these temperature thresholds were depended on state. **We dug deeper to answer why.**
+
+<a href="https://serene-choux-d79a21.netlify.app/" class="button">Home</a><a href="https://serene-choux-d79a21.netlify.app/project/two" class="button">Pt 2: How we dug deeper</a><a href="https://serene-choux-d79a21.netlify.app/project/three" class="button">Pt 3: Our data engineering</a>
 
