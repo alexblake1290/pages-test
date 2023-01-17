@@ -11,10 +11,10 @@ name = "ecodata" # Based on https://www.ecodata.tech/
   link_hover = "#ffffff"
 
   # Menu
-  menu_primary = "#6eb39c"
-  menu_text = "#6eb39c"
+  menu_primary = "#1b2724"
+  menu_text = "#ffffff"
   menu_text_active = "#6eb39c"
-  menu_title = "#6eb39c"
+  menu_title = "#ffffff"
 
   # Home sections
   home_section_odd = "#1b2724"
