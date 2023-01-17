@@ -20,6 +20,8 @@ profile: no
 comments: no
 reading_time: no
 ---
+<script src="{{< blogdown/postref >}}index_files/kePrint/kePrint.js"></script>
+<link href="{{< blogdown/postref >}}index_files/lightable/lightable.css" rel="stylesheet" />
 
 
 
@@ -34,7 +36,7 @@ p.caption {
 
 A key difference between growing in the moist East Coast and West Coast is cloud cover. Dense cloud cover blocks UV rays, but also starves fast-growing crop plants of light for photosynthesis. Both factors can affect agrochemical products.
 
-<img src="featured.jpg" style="border-radius: 5%;" />
+
 
 Leveraging location information and end-user surveys provided by the client, we took care of the rest with our data mining expertise.
 
@@ -71,57 +73,45 @@ get_cc <- function(buffer) {
 
 We then calculated which proportion of the photograph was covered with thick clouds (% cover) using R. We took the average values for the week prior and viola – user surveys were enriched with weekly % cloud cover, specific to each and every farm that used our client’s herbicide.
 
-<table>
+<table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
-   <th style="text-align:left;">   </th>
    <th style="text-align:left;"> State </th>
    <th style="text-align:left;"> Product_success </th>
    <th style="text-align:right;"> Daily_high_temp </th>
    <th style="text-align:right;"> Cloud_cover </th>
-   <th style="text-align:left;"> response </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> 61 </td>
    <td style="text-align:left;"> Florida </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 67 </td>
+   <td style="text-align:left;"> Yes </td>
    <td style="text-align:right;"> 86 </td>
-   <td style="text-align:left;"> No </td>
+   <td style="text-align:right;"> 0.70 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 62 </td>
    <td style="text-align:left;"> Florida </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 73 </td>
-   <td style="text-align:right;"> 74 </td>
-   <td style="text-align:left;"> No </td>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:right;"> 95 </td>
+   <td style="text-align:right;"> 0.90 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 63 </td>
    <td style="text-align:left;"> Florida </td>
    <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 75 </td>
-   <td style="text-align:right;"> 46 </td>
-   <td style="text-align:left;"> No </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 0.86 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 64 </td>
    <td style="text-align:left;"> Florida </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 85 </td>
-   <td style="text-align:right;"> 36 </td>
-   <td style="text-align:left;"> No </td>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 0.12 </td>
   </tr>
   <tr>
-   <td style="text-align:left;"> 65 </td>
    <td style="text-align:left;"> Florida </td>
-   <td style="text-align:left;"> No </td>
-   <td style="text-align:right;"> 86 </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:left;"> No </td>
+   <td style="text-align:left;"> Yes </td>
+   <td style="text-align:right;"> 71 </td>
+   <td style="text-align:right;"> 0.42 </td>
   </tr>
 </tbody>
 </table>
@@ -138,8 +128,8 @@ As with high temperatures in Florida, product failure was slightly less likely o
 However, when accounting for temperature and cloud cover at the same time, we found that hot, clear days were much more likely to cause product failure than hot but cloudy days (Figure 3). When cloud cover is below 15%, hot days above 86F were much more likely to result in product failure, similar to the results found in California.
 
 <div class="figure">
-<img src="{{< blogdown/postref >}}index_files/figure-html/interaction-1.png" alt="But the interplay of cloudiness and temperature was key. The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days." width="672" />
-<p class="caption">Figure 2: But the interplay of cloudiness and temperature was key. The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days.</p>
+<img src="{{< blogdown/postref >}}index_files/figure-html/interaction-1.png" alt="The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days." width="672" />
+<p class="caption">Figure 2: The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days.</p>
 </div>
 
 ## How we improved the end-user experience

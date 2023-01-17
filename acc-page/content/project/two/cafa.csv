@@ -1,0 +1,52 @@
+,fips,abbr,full,pop_2015,herbicide_survey,cafa_cloud,ellie_score
+1,1,AL,Alabama,4858979,0,0,0
+2,2,AK,Alaska,738432,0,0,0
+3,4,AZ,Arizona,6828065,0,0,0
+4,5,AR,Arkansas,2978204,0,0,0
+5,6,CA,California,39144818,1,0.3,0
+6,8,CO,Colorado,5456574,0,0,0
+7,9,CT,Connecticut,3590886,0,0,1
+8,10,DE,Delaware,945934,0,0,0
+9,11,DC,District of Columbia,672228,0,0,0
+10,12,FL,Florida,20271272,1,0.7,0
+11,13,GA,Georgia,10214860,0,0,0
+12,15,HI,Hawaii,1431603,0,0,0
+13,16,ID,Idaho,1654930,0,0,1
+14,17,IL,Illinois,12859995,0,0,1
+15,18,IN,Indiana,6619680,0,0,1
+16,19,IA,Iowa,3123899,0,0,1
+17,20,KS,Kansas,2911641,0,0,0
+18,21,KY,Kentucky,4425092,0,0,0
+19,22,LA,Louisiana,4670724,0,0,0
+20,23,ME,Maine,1329328,0,0,0
+21,24,MD,Maryland,6006401,0,0,0
+22,25,MA,Massachusetts,6794422,0,0,1
+23,26,MI,Michigan,9922576,0,0,0
+24,27,MN,Minnesota,5489594,0,0,1
+25,28,MS,Mississippi,2992333,0,0,0
+26,29,MO,Missouri,6083672,0,0,0
+27,30,MT,Montana,1032949,0,0,1
+28,31,NE,Nebraska,1896190,0,0,1
+29,32,NV,Nevada,2890845,0,0,0
+30,33,NH,New Hampshire,1330608,0,0,0
+31,34,NJ,New Jersey,8958013,0,0,0
+32,35,NM,New Mexico,2085109,0,0,0
+33,36,NY,New York,19795791,0,0,1
+34,37,NC,North Carolina,10042802,0,0,0
+35,38,ND,North Dakota,756927,0,0,0
+36,39,OH,Ohio,11613423,0,0,1
+37,40,OK,Oklahoma,3911338,0,0,0
+38,41,OR,Oregon,4028977,0,0,0
+39,42,PA,Pennsylvania,12802503,0,0,1
+40,44,RI,Rhode Island,1056298,0,0,0
+41,45,SC,South Carolina,4896146,0,0,0
+42,46,SD,South Dakota,858469,0,0,1
+43,47,TN,Tennessee,6600299,0,0,0
+44,48,TX,Texas,27469114,0,0,0
+45,49,UT,Utah,2995919,0,0,1
+46,50,VT,Vermont,626042,0,0,0
+47,51,VA,Virginia,8382993,0,0,0
+48,53,WA,Washington,7170351,0,0,1
+49,54,WV,West Virginia,1844128,0,0,0
+50,55,WI,Wisconsin,5771337,0,0,1
+51,56,WY,Wyoming,586107,0,0,1

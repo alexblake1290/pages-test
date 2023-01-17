@@ -29,10 +29,11 @@ library(ggplot2)
 library(tidyverse)
 library(effects)
 library(ggeffects)
+library(usmap)
 library(ecodatamisc)
 demo_dat = read.csv("demo.csv")
+cafa = read.csv("cafa.csv")
 demo_dat$response = as.factor(demo_dat$Product_success)
-dat2 = subset(demo_dat,State=="California")
 dat3 = subset(demo_dat,State=="Florida")
 
 bg = "#1b2724"
@@ -51,7 +52,12 @@ p.caption {
 
 A key difference between growing in the moist East Coast and West Coast is cloud cover. Dense cloud cover blocks UV rays, but also starves fast-growing crop plants of light for photosynthesis. Both factors can affect agrochemical products.
 
-<img src="featured.jpg" style="border-radius: 5%;" />
+```{rmap, eval=FALSE, fig.cap="Average annual cloud cover in California and Florida."}
+plot_usmap(data = cafa, values = "cafa_cloud", color = "#6eb39c") + 
+  theme(panel.background = element_rect(color = "#1b2724", fill = "#1b2724")) +
+  scale_fill_continuous(low = "#1b2724", high = "lightblue", name = "Cloud Cover") +
+  theme(legend.position="none")
+```
 
 Leveraging location information and end-user surveys provided by the client, we took care of the rest with our data mining expertise.
 
@@ -87,10 +93,10 @@ get_cc <- function(buffer) {
 
 We then calculated which proportion of the photograph was covered with thick clouds (% cover) using R. We took the average values for the week prior and viola – user surveys were enriched with weekly % cloud cover, specific to each and every farm that used our client’s herbicide.
 
-```{r}
-kable(dat3[1:5, ])
-#kable(mtcars[1:5, ], format="latex") %>%
-#  kable_styling(latex_options="scale_down")
+```{r, fig.cap="Sample of the initial end-user survey provided to us by the client (with GPS coordinates omitted)."}
+dat3[1:5, 1:4] %>%
+  kbl() %>%
+  kable_minimal()
 ```
 
 ## Overall result from the cloud-cover analysis
@@ -104,8 +110,10 @@ eff4 = allEffects(se=TRUE, xlevels=100, mod=mod4) %>%
 
 ggplot(data=eff4$Cloud_cover,aes(x=Cloud_cover, y=fit))+
   geom_line(linewidth=1,colour=pl) +
+  scale_y_continuous(labels=scales::percent) +
+  scale_x_continuous(labels=scales::percent) +
   geom_ribbon(aes(ymin=fit-se, ymax=fit+se),alpha=.2,fill=pl) +
-  labs(title = '', x = '\nAverage weekly cloud cover (%)', y = 'Probability of product success\n') +
+  labs(title = '', x = '\nAvg. Weekly Cloud Cover (%)\n\nFlorida', y = 'Product success (%)\n') +
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
@@ -121,12 +129,13 @@ ggplot(data=eff4$Cloud_cover,aes(x=Cloud_cover, y=fit))+
 
 However, when accounting for temperature and cloud cover at the same time, we found that hot, clear days were much more likely to cause product failure than hot but cloudy days (Figure 3). When cloud cover is below 15%, hot days above 86F were much more likely to result in product failure, similar to the results found in California.
 
-```{r interaction, fig.cap="But the interplay of cloudiness and temperature was key. The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days."}
+```{r interaction, fig.cap="The solid line shows the effect of temperature on the product on clear sunny days, the dotted line on overcast days. The impact of temperature is strong on clear days, but not cloudy days."}
 mod5 = glm(response ~ Daily_high_temp * Cloud_cover, family=binomial, data=dat3)
-df = ggpredict(mod5, terms=c("Daily_high_temp[all]", "Cloud_cover[20,55]"), ci.lvl=NA)
+df = ggpredict(mod5, terms=c("Daily_high_temp[all]", "Cloud_cover[.20,.55]"), ci.lvl=NA)
 ggplot(df,aes(x=x,y=predicted,group=group)) +
   geom_line(linewidth=1,colour=pl,aes(linetype=group)) +
-  labs(title = '', x = '\nDaily max temperature (F)', y = 'Probability of product success\n') +
+  scale_y_continuous(labels=scales::percent) +
+  labs(title = '', x = '\nDaily max. temp. (F)\n\nFlorida', y = 'Product success (%)\n') +
   theme_ecodata() +
   theme(
     legend.position="none",
