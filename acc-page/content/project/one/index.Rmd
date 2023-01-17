@@ -43,6 +43,22 @@ p.caption {
   font-size: 0.8em;
   padding: 0px 0px 40px 0px;
 }
+.button {
+  background-color: #1b2724;
+  border: #6eb39c;
+  color: #6eb39c;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover {
+  color: white;
+  border: white;
+}
 </style>
 
 <img src="featured.jpg" style="border-radius: 5%;" />
@@ -75,5 +91,5 @@ kable(demo_dat[1:5, ])
 
 We then used this information to pinpoint temperature thresholds where product failed, so our client knew when exactly their growers could spray to minimize waste. But how clear-cut these temperature thresholds were depended on state. We dug deeper to answer why.
 
-(Links to other pages)
+<a href="https://serene-choux-d79a21.netlify.app/" class="button">Home</a><a href="https://serene-choux-d79a21.netlify.app/project/two" class="button">How we dug deeper</a><button name="button" onclick="https://serene-choux-d79a21.netlify.app/project/three">Cloud cover</button>
 
