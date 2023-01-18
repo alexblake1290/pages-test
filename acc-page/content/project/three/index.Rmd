@@ -155,4 +155,6 @@ ggplot(df,aes(x=x,y=predicted,group=group)) +
 
 <img src="orchard.jpeg" style="border-radius: 5%;" />
 
-Cloud cover turned out to be key. While temperature explained product failure in drier California, we uncovered a more nuanced interplay of temperature and cloud cover in wetter Florida. With these insights our client could advise growers with different agricultural systems how to get the most out of their product.
+Cloud cover turned out to be key. While temperature explained product failure in drier California, **we uncovered a more nuanced interplay of temperature and cloud cover in wetter Florida.**
+
+With these insights our client could advise growers with different agricultural systems how to get the most out of their product.
