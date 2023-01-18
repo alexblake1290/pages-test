@@ -20,17 +20,17 @@ sections:
   content:
     text: |-
 
-      ## {{< icon name="user-tie" pack="fas" >}} **Client:** American agrochemical producer
+      ### {{< icon name="user-tie" pack="fas" >}} **Client:** American agrochemical producer
         
-      ## {{< icon name="briefcase" pack="fas" >}} **Themes:** Herbicide performance, regional climates 
+      ### {{< icon name="briefcase" pack="fas" >}} **Themes:** Herbicide performance, regional climates 
         
-      ## {{< icon name="terminal" pack="fas" >}} **Techniques:** End-user surveys, binomial GLM, image extraction, R
+      ### {{< icon name="terminal" pack="fas" >}} **Techniques:** End-user surveys, binomial GLM, image extraction, R
   design:
     background:
       image:
         color: '#1b2724'
         text_color_light: yes
-    css_style: 'font-size: 160%;'
+    css_style: 'font-size: 120%;'
     spacing:
       padding: ["20px","0","5px","0"]
 - block: portfolio
@@ -42,7 +42,7 @@ sections:
       - Problem
       - Solution
     title: ''
-    sort_by: Date
+    sort_by: Weight
     sort_ascending: yes
   design:
     spacing:

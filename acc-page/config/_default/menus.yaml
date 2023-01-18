@@ -4,7 +4,7 @@
 #   The weight parameter defines the order that the links will appear in.
 
 main:
-  - name: Project Overview
+  - name: "Overview: Agrochemical Performance"
     url: /
     weight: 10
   - name: "1: Project Scoping"
