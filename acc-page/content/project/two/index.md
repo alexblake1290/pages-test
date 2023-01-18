@@ -62,7 +62,7 @@ We can just count the number of 'yes' and 'no' responses. But **that doesn’t t
 
 ## Solving the problem with binomial GLMs
 
-We use Binomial GLMs. In these models a steep, S-shaped curve shows a strong correlation between product performance and temperature. A flatter curve is a weak correlation.
+When we visualize binomial GLMs, a steep S-shaped curve shows a strong correlation between product performance and temperature. A flatter curve is a weak correlation.
 
 #### Results are clear on the West Coast
 
