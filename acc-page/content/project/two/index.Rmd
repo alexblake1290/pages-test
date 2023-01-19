@@ -98,7 +98,7 @@ When we visualize binomial GLMs, a steep S-shaped curve shows a strong correlati
 
 In California we see a steep S-curve, showing a strong correlation between high temperature and agrochemical performance.
 
-```{r cali, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in California. High temperatures significantly impacted product performance (p < 0.001)."}
+```{r cali, strip.white=TRUE, fig.cap="Probability of agrochemical product success in response to daily maximum temperatures on farms in California. High temperatures significantly impacted product performance (p < 0.001)."}
 mod2 = glm(response ~ Daily_high_temp, family=binomial, data=dat2)
 eff2 = allEffects(se=TRUE, xlevels=100, mod=mod2) %>%
   as.data.frame()
@@ -112,7 +112,7 @@ ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
-    plot.background = element_rect(fill="transparent", colour=NA),
+    plot.background = element_rect(fill=bg, colour=NA),
     axis.line = element_line(colour=wh),
     axis.text = element_text(colour=wh),
     axis.title.x = element_text(colour=wh),
