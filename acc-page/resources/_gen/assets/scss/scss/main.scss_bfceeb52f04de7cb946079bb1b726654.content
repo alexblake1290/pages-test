@@ -9668,3 +9668,10 @@ div.chart {
 
 .big_headline h1 {
   font-size: 300%; }
+
+.brief h3 {
+  font-size: 120%;
+  font-weight: 500; }
+
+.navbar {
+  height: 110px; }

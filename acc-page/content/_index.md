@@ -30,7 +30,7 @@ sections:
       image:
         color: '#1b2724'
         text_color_light: yes
-    css_style: 'font-size: 120%;'
+    css_class: 'brief'
     spacing:
       padding: ["20px","0","5px","0"]
 - block: portfolio

@@ -1,5 +1,4 @@
 ---
-date: "2022-12-03T00:00:00Z"
 weight: 1
 external_link: ""
 image:
@@ -27,8 +26,11 @@ reading_time: false
 
 <style>
 p.caption {
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0px 0px 40px 0px;
+}
+qt {
+  color:#cccccc;
 }
 </style>
 
@@ -36,7 +38,7 @@ p.caption {
 
 Agrochemical products deal with all the environmental extremes that occurs in the field. High temperatures, cold winds, and record droughts prevent products from working as intended. 
 
-> *"We suspected extraordinarily high and low temperatures might impact the performance of our agrochemical used by citrus growers, causing expensive wastage for our customers."*
+> <qt>*"We suspected extraordinarily high and low temperatures might impact the performance of our agrochemical used by citrus growers, causing expensive wastage for our customers."*</qt>
 
 <img src="img2.jpg" style="border-radius: 5%;" />
 
@@ -44,14 +46,17 @@ The client sales team had collected simple survey responses from growers, record
 
 <img src="img3.jpg" style="border-radius: 5%;" />
 
-**So what was really occurring in the field?** And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+**So what was really occurring in the field?** And if temperature was the culprit, exactly when did chemical performance degrade?
 
-<div style="border: 0; padding: 5px;overflow-x: scroll; width:100%; "><table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; margin-left: auto; margin-right: auto;'>
+Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+
+<div style="border: 0; overflow-x: auto; padding: 5px;"><table class=" lightable-minimal" style="font-family: Roboto; margin-left: auto; margin-right: auto;">
+<caption>Table 1: Sample of the initial end-user survey provided to us by the client (with GPS coordinates omitted).</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>
-   <th style="text-align:left;"> Product_success </th>
-   <th style="text-align:right;"> Daily_high_temp_Farenheit </th>
+   <th style="text-align:left;"> Product success </th>
+   <th style="text-align:right;"> Daily high temp. (F) </th>
   </tr>
  </thead>
 <tbody>
@@ -85,9 +90,9 @@ The client sales team had collected simple survey responses from growers, record
 
 ## Our solution: enriching end-user surveys
 
-> *"Surprisingly, that was all the data we had to provide to Ecodata so they could start answering our questions."*
+> <qt>*"Surprisingly, that was all the data we had to provide to Ecodata so they could start answering our questions."*</qt>
 
-The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - all of these were leveraged to enrich the client's existing surveys.
+The rest of the information we used was generated in-house by our environmental data scientists. Daily temperatures, rainfall, even cumulative degree days - we built a data pipeline leveraging all of these to enrich the client's existing surveys. 
 
 <img src="flowchart.png" style="border-radius: 5%;" />
 

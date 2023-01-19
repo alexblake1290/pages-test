@@ -28,8 +28,11 @@ reading_time: no
 
 <style>
 p.caption {
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0px 0px 40px 0px;
+}
+qt {
+  color:#cccccc;
 }
 </style>
 
@@ -37,7 +40,7 @@ p.caption {
 
 A key difference between growing in the moist East Coast and West Coast is cloud cover. Florida has twice as many cloudy days as California on average.
 
-<img src="cloud_map.svg" style="border-radius: 5%;" />
+<img src="landsat.jpg" style="border-radius: 5%;" />
 
 Dense cloud cover blocks UV rays, but also starves fast-growing crop plants of light for photosynthesis. **Both factors can affect agrochemical products.**
 
@@ -48,8 +51,6 @@ Leveraging location information and end-user surveys provided by the client, we 
 Cloudiness is easy to define but hard to measure with remote sensing. LandSat 8 is a satellite photography program that hosts images taken of the Earths surface. We can’t just download the photos – these are millions of high-resolution images.
 
 To explore how cloud cover impacted product outcomes in Florida, **we needed to estimate cloud cover on farms for the entire week prior to product application.**
-
-<img src="landsat.jpg" style="border-radius: 5%;" />
 
 ## How we extracted cloud cover data
 
@@ -78,13 +79,14 @@ get_cc <- function(buffer) {
 
 We then calculated which proportion of the photograph was covered with thick clouds (% cover) using R. We took the average values for the week prior and viola – **user surveys were enriched with weekly % cloud cover, specific to each farm that used our client’s herbicide.**
 
-<table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; margin-left: auto; margin-right: auto;'>
+<div style="border: 0; overflow-x: auto; padding: 5px;"><table class=" lightable-minimal" style="font-family: Roboto; margin-left: auto; margin-right: auto;">
+<caption>Table 1: Sample of the end-user survey provided to us by the client, enriched with cloud cover data (GPS coordinates omitted).</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>
-   <th style="text-align:left;"> Product_success </th>
-   <th style="text-align:right;"> Daily_high_temp </th>
-   <th style="text-align:right;"> Cloud_cover </th>
+   <th style="text-align:left;"> Product success </th>
+   <th style="text-align:right;"> Daily high temp. (F) </th>
+   <th style="text-align:right;"> Cloud cover (%) </th>
   </tr>
  </thead>
 <tbody>
@@ -119,7 +121,7 @@ We then calculated which proportion of the photograph was covered with thick clo
    <td style="text-align:right;"> 0.42 </td>
   </tr>
 </tbody>
-</table>
+</table></div>
 
 ## Overall result from the cloud-cover analysis
 
@@ -139,7 +141,7 @@ However, **when accounting for temperature and cloud cover at the same time, we 
 
 ## How we improved the end-user experience
 
->*"Ecodata made the results easy to explain to our customers on the East Coast: avoid use on days with hot and clear mornings, but on overcast days it's generally safe to spray even when it's hot.*"
+> <qt>*"Ecodata made the results easy to explain to our customers on the East Coast: avoid use on days with hot and clear mornings, but on overcast days it's generally safe to spray even when it's hot.*"</qt>
 
 <img src="orchard.jpeg" style="border-radius: 5%;" />
 

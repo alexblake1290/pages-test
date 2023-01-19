@@ -58,7 +58,7 @@
       {{ with $resource }}
         {{ $image := .Resize "540x webp" }}
         {{if $do_link}}<a href="{{ $link }}" {{ $target | safeHTMLAttr }}>{{end}}
-          <img src="{{ $image.RelPermalink }}" height="{{ $image.Height }}" width="{{ $image.Width }}" style="border-radius:5%" 
+          <img src="{{ $image.RelPermalink }}" height="{{ $image.Height }}" width="{{ $image.Width }}" style="border-radius:5%; padding: 0px 0px 15px 0px" 
               alt="{{ $item.Title }}" loading="lazy">
         {{if $do_link}}</a>{{end}}
       {{end}}

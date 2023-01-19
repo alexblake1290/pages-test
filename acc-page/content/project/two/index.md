@@ -26,8 +26,11 @@ reading_time: false
 
 <style>
 p.caption {
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0px 0px 40px 0px;
+}
+qt {
+  color:#cccccc;
 }
 </style>
 
@@ -43,9 +46,13 @@ Building on the client’s question like this added **valuable but tricky nuance
 
 Some analyses are easy to interpret – we can summarize them with simple bar graphs or time series. But as problems become more complex so do the analyses and their outputs.
 
-> *"We felt the team at Ecodata really valued our time. They walked us through the specifics, but always brought things back to the key highlights. Results and implications of the analyses were clear... we never felt lost in the gritty details."*
+> <qt>*"We felt the team at Ecodata really valued our time. They walked us through the specifics, but always brought things back to the key highlights. Results and implications of the analyses were clear... we never felt lost in the gritty details."*</qt>
 
-One such analysis is the binomial GLM, a powerful tool for yes/no data like our client provided. But the outputs can be tricky to visualize, and tricker when different segments arise in the data such as geography. **Our consultants worked closely with the client explain these outputs comprehensively, but clearly.**
+One such analysis is the binomial GLM, a powerful tool for yes/no data like our client provided. But the outputs can be tricky to visualize, and tricker when different segments arise in the data such as geography.
+
+<img src="consult.jpg" style="border-radius: 5%;" />
+
+**Our consultants worked closely with the client explain these outputs comprehensively, but clearly.**
 
 ## A case study: how we leverage simple yes/no surveys
 
@@ -95,7 +102,7 @@ On the other hand, we’re much less confident about how temperature impacts the
 
 The p-value summarizes how confident we are in the model conclusions, or the risk that our model is *wrong*. This kind of uncertainty is helpful: **clients can use model uncertainty to make informed business decisions by placing a dollar value on risk.**
 
-<img src="thinking.jpg" style="border-radius: 5%;" />
+<img src="analyst.jpg" style="border-radius: 5%;" />
 
 In California, a p-value under 0.001 says we’re very confident that spraying at high temperatures would just be a waste - **there's only a 0.1% chance our conclusion is wrong.** Growers can estimate the cost of *not* spraying (e.g. pest damage), adjust for the chance our model is wrong (0.1%), and compare to the savings made by not (wastefully) spraying.
 
@@ -103,6 +110,8 @@ By contrast, in the Florida model we have a p-value of 0.82. So there’s a 82% 
 
 ## Distilling things down to actionable insights
 
+<img src="station.jpg" style="border-radius: 5%;" />
+
 Here we'd advise our client to give strong guidance to citrus growers in California. But for end-users in Florida, their advice should be transparent but qualified.
 
-> *"The take-home was simple: don't waste our herbicide above 88F. Clear advice for West Coast orchards made it easy for us to ensure customer satisfaction. We wanted to provide the same kind of clear guidance to our customers in the East, so we asked Ecodata to drill further into the Florida data."*
+> <qt>*"The take-home was simple: don't waste our herbicide above 88F. Clear advice for West Coast orchards made it easy for us to ensure customer satisfaction. We wanted to provide the same kind of clear guidance to our customers in the East, so we asked Ecodata to drill further into the Florida data."*</qt>
