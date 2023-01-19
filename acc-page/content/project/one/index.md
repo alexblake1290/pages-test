@@ -46,7 +46,7 @@ The client sales team had collected simple survey responses from growers, record
 
 **So what was really occurring in the field?** And if temperature was the culprit, exactly when did chemical performance degrade? Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
 
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; "><table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; margin-left: auto; margin-right: auto;'>
+<div style="border: 0; padding: 5px;overflow-x: scroll; width:100%; "><table class=" lightable-minimal" style='font-family: "Trebuchet MS", verdana, sans-serif; margin-left: auto; margin-right: auto;'>
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>
