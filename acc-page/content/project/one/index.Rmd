@@ -65,7 +65,8 @@ The client sales team had collected simple survey responses from growers, record
 #  kable_styling(latex_options="scale_down")
 demo_dat[1:5, ] %>%
   kbl() %>%
-  kable_minimal()
+  kable_minimal() %>%
+  scroll_box(width="100%")
 ```
 
 ## Our solution: enriching end-user surveys
