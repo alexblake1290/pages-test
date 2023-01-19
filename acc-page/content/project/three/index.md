@@ -1,21 +1,19 @@
 ---
-title: 'Data engineering to uncover root cause'
+title: "Data engineering to uncover root cause"
 external_link: ''
 date: "2016-04-28T00:00:00Z"
 weight: 3
 links: null
-summary: |-
-
-  Dense cloud cover blocks UV rays and impedes crop photosynthesis – both impact product performance. Measuring cloudiness from raw imagery across many dates and sites required data mining and automation outside our client’s expertise.
-  
-  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in a humid east-coast state like Florida but not in  dry California.
-  
-  Click for more on how we engineered landsat data.
+summary: "\nDense cloud cover blocks UV rays and impedes crop photosynthesis – both
+  impact product performance. Measuring cloudiness from raw imagery across many dates
+  and sites required data mining and automation outside our client’s expertise.\n\nWe
+  extracted cloud cover around each farm during product application. The combination
+  of cover and temperature was detrimental in a humid east-coast state like Florida
+  but not in  dry California.\n\nClick for more on how we engineered landsat data."
 image:
   focal_point: Smart
   preview_only: yes
-tags:
-- Solution
+tags: Solution
 share: no
 profile: no
 comments: no
@@ -29,6 +27,7 @@ reading_time: no
 <style>
 p.caption {
   font-size: 0.9em;
+  text-align: center;
   padding: 0px 0px 40px 0px;
 }
 qt {
@@ -40,8 +39,6 @@ qt {
 
 A key difference between growing in the moist East Coast and West Coast is cloud cover. Florida has twice as many cloudy days as California on average.
 
-<img src="landsat.jpg" style="border-radius: 5%;" />
-
 Dense cloud cover blocks UV rays, but also starves fast-growing crop plants of light for photosynthesis. **Both factors can affect agrochemical products.**
 
 Leveraging location information and end-user surveys provided by the client, we took care of the rest with our data mining expertise.
@@ -49,6 +46,8 @@ Leveraging location information and end-user surveys provided by the client, we 
 ## What makes cloud cover tricky to measure?
 
 Cloudiness is easy to define but hard to measure with remote sensing. LandSat 8 is a satellite photography program that hosts images taken of the Earths surface. We can’t just download the photos – these are millions of high-resolution images.
+
+<img src="landsat.jpg" style="border-radius: 5%;" />
 
 To explore how cloud cover impacted product outcomes in Florida, **we needed to estimate cloud cover on farms for the entire week prior to product application.**
 
@@ -80,7 +79,6 @@ get_cc <- function(buffer) {
 We then calculated which proportion of the photograph was covered with thick clouds (% cover) using R. We took the average values for the week prior and viola – **user surveys were enriched with weekly % cloud cover, specific to each farm that used our client’s herbicide.**
 
 <div style="border: 0; overflow-x: auto; padding: 5px;"><table class=" lightable-minimal" style="font-family: Roboto; margin-left: auto; margin-right: auto;">
-<caption>Table 1: Sample of the end-user survey provided to us by the client, enriched with cloud cover data (GPS coordinates omitted).</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>

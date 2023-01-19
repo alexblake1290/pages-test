@@ -27,6 +27,7 @@ reading_time: false
 <style>
 p.caption {
   font-size: 0.9em;
+  text-align: center;
   padding: 0px 0px 40px 0px;
 }
 qt {
@@ -48,10 +49,9 @@ The client sales team had collected simple survey responses from growers, record
 
 **So what was really occurring in the field?** And if temperature was the culprit, exactly when did chemical performance degrade?
 
-Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product.
+Our client's survey confirmed their suspicions, but they needed hard numbers to improve their product. Here's a sample of the initial end-user survey provided to us by the client, with GPS coordinates omitted:
 
 <div style="border: 0; overflow-x: auto; padding: 5px;"><table class=" lightable-minimal" style="font-family: Roboto; margin-left: auto; margin-right: auto;">
-<caption>Table 1: Sample of the initial end-user survey provided to us by the client (with GPS coordinates omitted).</caption>
  <thead>
   <tr>
    <th style="text-align:left;"> State </th>
