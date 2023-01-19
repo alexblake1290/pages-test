@@ -27,7 +27,6 @@ reading_time: false
 <style>
 p.caption {
   font-size: 0.9em;
-  text-align: center;
   padding: 0px 0px 40px 0px;
 }
 qt {

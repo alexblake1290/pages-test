@@ -4,16 +4,18 @@ external_link: ''
 date: "2016-04-28T00:00:00Z"
 weight: 3
 links: null
-summary: "\nDense cloud cover blocks UV rays and impedes crop photosynthesis – both
-  impact product performance. Measuring cloudiness from raw imagery across many dates
-  and sites required data mining and automation outside our client’s expertise.\n\nWe
-  extracted cloud cover around each farm during product application. The combination
-  of cover and temperature was detrimental in a humid east-coast state like Florida
-  but not in  dry California.\n\nClick for more on how we engineered landsat data."
+summary: |- 
+
+  Dense cloud cover blocks UV rays and impedes crop photosynthesis – both impact product performance. Measuring cloudiness from raw imagery across many dates and sites required data mining and automation outside our client’s expertise.
+  
+  We extracted cloud cover around each farm during product application. The combination of cover and temperature was detrimental in a humid east-coast state like Florida but not in dry California.
+  
+  Click for more on how we engineered landsat data.
 image:
   focal_point: Smart
   preview_only: yes
-tags: Solution
+tags:
+- Solution
 share: no
 profile: no
 comments: no
@@ -27,7 +29,6 @@ reading_time: no
 <style>
 p.caption {
   font-size: 0.9em;
-  text-align: center;
   padding: 0px 0px 40px 0px;
 }
 qt {
