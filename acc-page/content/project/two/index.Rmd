@@ -84,7 +84,7 @@ demo_dat %>%
     theme_ecodata() +
     theme(
       panel.background = element_rect(fill=bg, colour=NA),
-      plot.background = element_rect(fill=bg, colour=NA),
+      plot.background = element_rect(fill=bg, colour=bg),
       axis.line = element_line(colour=wh),
       axis.text = element_text(colour=wh),
       axis.title.x = element_text(colour=wh),
@@ -119,7 +119,7 @@ ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
-    plot.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=bg),
     axis.line = element_line(colour=wh),
     axis.text = element_text(colour=wh),
     axis.title.x = element_text(colour=wh),
@@ -144,7 +144,7 @@ ggplot(data=eff2$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
-    plot.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=bg),
     axis.line = element_line(colour=wh),
     axis.text = element_text(colour=wh),
     axis.title.x = element_text(colour=wh),
@@ -175,7 +175,7 @@ ggplot(data=eff3$Daily_high_temp,aes(x=Daily_high_temp, y=fit))+
   theme_ecodata() +
   theme(
     panel.background = element_rect(fill=bg, colour=NA),
-    plot.background = element_rect(fill=bg, colour=NA),
+    plot.background = element_rect(fill=bg, colour=bg),
     axis.line = element_line(colour=wh),
     axis.text = element_text(colour=wh),
     axis.title.x = element_text(colour=wh),
