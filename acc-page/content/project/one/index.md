@@ -87,6 +87,10 @@ Our client's survey confirmed their suspicions, but they needed hard numbers to 
 </tbody>
 </table></div>
 
+## TESTING SHINY EMBED
+
+<iframe width="100%" frameborder="no" src="http://3.142.212.56:3838/phenogamTest/"> </iframe>
+
 ## Our solution: enriching end-user surveys
 
 > <qt>*"Surprisingly, that was all the data we had to provide to Ecodata so they could start answering our questions."*</qt>
