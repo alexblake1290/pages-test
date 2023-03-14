@@ -76,7 +76,7 @@ demo_dat[1:5, ] %>%
 
 ## TESTING SHINY EMBED
 
-<iframe height="600px" width="100%" frameborder="no" src="https://ecodatatech.shinyapps.io/ctspongymoth/"> </iframe>
+<iframe height="1000px" width="100%" frameborder="no" src="https://ecodatatech.shinyapps.io/ctspongymoth/"> </iframe>
 
 ## Our solution: enriching end-user surveys
 

@@ -89,7 +89,7 @@ Our client's survey confirmed their suspicions, but they needed hard numbers to 
 
 ## TESTING SHINY EMBED
 
-<iframe height="600px" width="100%" frameborder="no" src="https://ecodatatech.shinyapps.io/ctspongymoth/"> </iframe>
+<iframe height="1000px" width="100%" frameborder="no" src="https://ecodatatech.shinyapps.io/ctspongymoth/"> </iframe>
 
 ## Our solution: enriching end-user surveys
 
